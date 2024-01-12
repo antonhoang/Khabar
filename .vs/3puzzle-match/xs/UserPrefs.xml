@@ -1,0 +1,44 @@
+﻿<Properties StartupConfiguration="{68931E6E-8669-C760-A181-8B62B314036A}|">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ClickableURL.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Tabbar/TabScaling.cs" Line="56" Column="6" IsPinned="True" />
+      <File FileName="Assets/Scripts/LevelScene/LevelSelect.cs" />
+      <File FileName="Assets/Scripts/Desk/Board.cs" />
+      <File FileName="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Layout/AspectRatioFitter.cs" />
+      <File FileName="Assets/Scripts/Desk/Gem.cs" Line="1" Column="1" />
+      <File FileName="Assets/ClickableURL.cs" Line="17" Column="35" />
+      <File FileName="Assets/Scripts/Desk/MatchFinder.cs" />
+      <File FileName="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" />
+      <File FileName="Assets/TouchScroll.cs" />
+      <File FileName="Assets/GameMap.cs" />
+      <File FileName="Assets/MapButton.cs" />
+      <File FileName="Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="3puzzle-match">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Desk" expanded="True" />
+                <Node name="LevelScene" expanded="True" />
+                <Node name="Managers" expanded="True" />
+                <Node name="StartScene" expanded="True" />
+                <Node name="Tabbar" expanded="True" />
+                <Node name="UI" expanded="True" />
+              </Node>
+              <Node name="TextMesh Pro" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="525c988f-968d-42fb-a1ed-b42b7c5e8f9e" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
