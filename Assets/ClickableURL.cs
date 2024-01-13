@@ -30,7 +30,7 @@ public class ClickableURL : MonoBehaviour, IPointerClickHandler
 
         if (textCase == TextCase.supportUs)
         {
-            myText += "Ваша підтримка надає життєвий вплив грі, я зроблю все можливе, щоб зробити її кращою. Допоможіть нам, кинувши донат через <link=https://www.buymeacoffee.com/>Buy Me a Coffee</link> тут. Дякуємо!";
+            myText += "Ваша підтримка надає життєвий вплив грі, я зроблю все можливе, щоб зробити її кращою. Допоможіть нам, кинувши донат через <link=https://www.buymeacoffee.com/5xcnzc9ln0/>Buy Me a Coffee</link> тут. Дякуємо!";
         }
 
         textComponent.text = myText;
