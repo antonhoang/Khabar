@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
-    public string mainMenu = "SampleScene";
+    public string mainMenu;
 
     public void GoToMainMenu()
     {
