@@ -1,0 +1,282 @@
+Unity Editor version:    2022.3.5f1 (9674261d40ee)
+Branch:                  2022.3/release
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 12.7.2 (Build 21G1974)
+Darwin version:          21.6.0
+Architecture:            x86_64
+Running under Rosetta:   NO
+Available memory:        8192 MB
+Using pre-set license
+Pro License: YES
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2022.3.5f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/macbook_alina/Desktop/Khabar Match 3 Puzzle Game
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+53589
+Successfully changed project path to: /Users/macbook_alina/Desktop/Khabar Match 3 Puzzle Game
+/Users/macbook_alina/Desktop/Khabar Match 3 Puzzle Game
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [4621522432] Host "[IP] 192.168.1.93 [Port] 0 [Flags] 2 [Guid] 3909828538 [EditorId] 3909828538 [Version] 1048832 [Id] OSXEditor(0,macbook-air-alina.home) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [4621522432] Host "[IP] 192.168.1.93 [Port] 0 [Flags] 2 [Guid] 3909828538 [EditorId] 3909828538 [Version] 1048832 [Id] OSXEditor(0,macbook-air-alina.home) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 37.43 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.5f1 (9674261d40ee)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2022.3.5f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/macbook_alina/Desktop/Khabar Match 3 Puzzle Game/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Color LCD preferred device: Intel(R) Iris(TM) Graphics 6000 (low power)
+Metal devices available: 1
+0: Intel(R) Iris(TM) Graphics 6000 (low power)
+Using device Intel(R) Iris(TM) Graphics 6000 (low power)
+Initializing Metal device caps: Intel(R) Iris(TM) Graphics 6000
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2022.3.5f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2022.3.5f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
+Mono config path = '/Applications/Unity/Hub/Editor/2022.3.5f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56095
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2022.3.5f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2022.3.5f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Registered in 0.012251 seconds.
+- Loaded All Assemblies, in  1.311 seconds
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+[usbmuxd] Send listen message
+Native extension for iOS target not found
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.086 seconds
+Domain Reload Profiling: 2398ms
+	BeginReloadAssembly (588ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (111ms)
+	RebuildNativeTypeToScriptingClass (25ms)
+	initialDomainReloadingComplete (151ms)
+	LoadAllAssembliesAndSetupDomain (437ms)
+		LoadAssemblies (591ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (421ms)
+			TypeCache.Refresh (415ms)
+				TypeCache.ScanAssembly (379ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (1086ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (881ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (375ms)
+			SetLoadedEditorAssemblies (17ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (11ms)
+			ProcessInitializeOnLoadAttributes (359ms)
+			ProcessInitializeOnLoadMethodAttributes (118ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  2.743 seconds
+Refreshing native plugins compatible for Editor in 10.28 ms, found 5 plugins.
+Native extension for iOS target not found
+Native extension for OSXStandalone target not found
+Mono: successfully reloaded assembly
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  2.074 seconds
+Domain Reload Profiling: 4819ms
+	BeginReloadAssembly (379ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (14ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (102ms)
+	RebuildCommonClasses (159ms)
+	RebuildNativeTypeToScriptingClass (54ms)
+	initialDomainReloadingComplete (104ms)
+	LoadAllAssembliesAndSetupDomain (2047ms)
+		LoadAssemblies (1002ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1195ms)
+			TypeCache.Refresh (1110ms)
+				TypeCache.ScanAssembly (1052ms)
+			ScanForSourceGeneratedMonoScriptInfo (70ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (2076ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1468ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (87ms)
+			SetLoadedEditorAssemblies (16ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (188ms)
+			ProcessInitializeOnLoadAttributes (1034ms)
+			ProcessInitializeOnLoadMethodAttributes (139ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Launching external process: /Applications/Unity/Hub/Editor/2022.3.5f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.80 seconds
+Refreshing native plugins compatible for Editor in 8.29 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2902 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 75 unused Assets / (66.6 KB). Loaded Objects now: 3358.
+Memory consumption went from 332.9 MB to 332.9 MB.
+Total: 12.250309 ms (FindLiveObjects: 0.413016 ms CreateObjectMapping: 0.569114 ms MarkObjects: 10.275159 ms  DeleteObjects: 0.991303 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+========================================================================
+Received Import Request.
+  Time since last request: 58486.197141 seconds.
+  path: Assets/KhabarUI/Shop/2024-01-15 10.26.28.jpg
+  artifactKey: Guid(efe6631295d784b278e0c8f4d1f13ad9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/KhabarUI/Shop/2024-01-15 10.26.28.jpg using Guid(efe6631295d784b278e0c8f4d1f13ad9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e9ca057f0af3a9d18822d970ba89901') in 0.354549 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000263 seconds.
+  path: Assets/KhabarUI/Shop
+  artifactKey: Guid(db450509f41bd4a52a60f1f570f7a32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/KhabarUI/Shop using Guid(db450509f41bd4a52a60f1f570f7a32b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '096a2371aac35da09965316c8a9f8bfa') in 0.000768 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 179.545732 seconds.
+  path: Assets/KhabarUI/Coins/coin_19.png
+  artifactKey: Guid(9df42c385ecb24d829ab749942c92e19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/KhabarUI/Coins/coin_19.png using Guid(9df42c385ecb24d829ab749942c92e19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67347b403cbdce1efd1a24ee7e8c5166') in 0.107025 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/KhabarUI/Coins/coin_23.png
+  artifactKey: Guid(d1f080e4685ee47f4a82677e6491e72c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/KhabarUI/Coins/coin_23.png using Guid(d1f080e4685ee47f4a82677e6491e72c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb84770b69c202a4c83a7dacb3fab612') in 0.026744 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.001454 seconds.
+  path: Assets/KhabarUI/Coins/coin_25.png
+  artifactKey: Guid(5e77bbf51a74d4093a0e80cd71bc0bfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/KhabarUI/Coins/coin_25.png using Guid(5e77bbf51a74d4093a0e80cd71bc0bfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64e87e5fa52911c63f66167b0f2b959d') in 0.063528 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000415 seconds.
+  path: Assets/KhabarUI/Coins/coin_24.png
+  artifactKey: Guid(5d2d8e2222b814c59bd55640d2c0e26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/KhabarUI/Coins/coin_24.png using Guid(5d2d8e2222b814c59bd55640d2c0e26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '435ad666b14a0092736e5b089b00e4b0') in 0.032714 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.191727 seconds.
+  path: Assets/KhabarUI/Coins/coin_35.png
+  artifactKey: Guid(e910929c7e1a944ebb46ac87612e8729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/KhabarUI/Coins/coin_35.png using Guid(e910929c7e1a944ebb46ac87612e8729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9299454a47c8b3b36c500cb6562c4b6') in 0.027891 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 186.804786 seconds.
+  path: Assets/KhabarUI/Levels/icon _Drum with drumsticks_ for mobile game _clipdrop-background-removal.png
+  artifactKey: Guid(6ba0ac7616349446abb052b3ff8e1dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/KhabarUI/Levels/icon _Drum with drumsticks_ for mobile game _clipdrop-background-removal.png using Guid(6ba0ac7616349446abb052b3ff8e1dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d58ef8b1a23b28dbfdb92c4a839102c') in 0.081715 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 195.904059 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+  artifactKey: Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat using Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ac588adf1f674e04b47bde9d0f91ca0') in 1.014075 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 553.480499 seconds.
+  path: Assets/KhabarUI/Coins/cash.png
+  artifactKey: Guid(e1660c9c4541d454a96e0ba8efd3789b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/KhabarUI/Coins/cash.png using Guid(e1660c9c4541d454a96e0ba8efd3789b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9059a2fb15d259d32d691619c7965a6d') in 0.094959 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 95.231009 seconds.
+  path: Assets/KhabarUI/Coins/coins.png
+  artifactKey: Guid(cc673ead88a44437c8dd890c0201fab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/KhabarUI/Coins/coins.png using Guid(cc673ead88a44437c8dd890c0201fab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '977d2c0ed66ece3f1ebd97621b29dfeb') in 0.058514 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
