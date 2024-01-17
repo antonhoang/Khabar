@@ -61,6 +61,7 @@
     <Compile Include="Assets/Scripts/LevelScene/LevelSelect.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" />
+    <Compile Include="Assets/Scripts/Managers/InventoryManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" />
     <Compile Include="Assets/Scripts/UI/ImageWithCorners.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs" />
     <Compile Include="Assets/Scripts/Desk/MatchFinder.cs" />
     <Compile Include="Assets/Scripts/Desk/Board.cs" />
+    <Compile Include="Assets/Scripts/Managers/ShopManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" />
     <Compile Include="Assets/Scripts/UI/SafeAreaContainer.cs" />
     <Compile Include="Assets/MapButton.cs" />
