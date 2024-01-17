@@ -28,6 +28,27 @@ public class RoundManager : MonoBehaviour
         uiMan.scoreText.text = displayScore.ToString("0");
     }
 
+    public void ResultingScore()
+    {
+        if (uiMan.movesLeft == 0)
+        {
+            CoinManager.AddCoins(currentScore);
+        }
+        
+    }
+
+    private void LateUpdate()
+    {
+        if (uiMan.movesLeft == 0)
+        {
+            uiMan.roundOverScreen.SetActive(true);
+        }
+        else
+        {
+            uiMan.roundOverScreen.SetActive(false);
+        }
+    }
+
     private void RoundTime()
     {
         if(roundTime > 0)

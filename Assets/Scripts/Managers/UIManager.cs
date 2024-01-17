@@ -35,17 +35,6 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (movesLeft == 0)
-        {
-            roundOverScreen.SetActive(true);
-            // Stop the game and show level complete
-            // Save Khabar coins to PlayerPrefs
-
-        } else
-        {
-            roundOverScreen.SetActive(false);
-        }
     }
 
     public void UpdateMoves()

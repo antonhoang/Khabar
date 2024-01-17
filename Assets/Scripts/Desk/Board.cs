@@ -132,7 +132,6 @@ public class Board : MonoBehaviour
                 DestroyMatchedGemAt(matchFind.currentMatches[i].posIndex);
             }
         }
-
         StartCoroutine(DecreaseRowCo());
     }
 
@@ -183,6 +182,7 @@ public class Board : MonoBehaviour
             yield return new WaitForSeconds(.2f);
             currentState = BoardState.move;
             bonusMulti = 0f;
+            ResultingScore();
         }
     }
 
@@ -275,5 +275,10 @@ public class Board : MonoBehaviour
             float bonusToAdd = gemToCheck.scroreValue * bonusMulti * bonusAmount;
             roundMan.currentScore += Mathf.RoundToInt(bonusToAdd);
         }
+    }
+
+    public void ResultingScore()
+    {
+        roundMan.ResultingScore();
     }
 }
