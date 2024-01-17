@@ -13,7 +13,6 @@ public class ShopManager : MonoBehaviour
     {
         // Example: Load items from Scriptable Objects
         LoadShopItems();
-        playerInventory = new InventoryManager();
     }
 
     void LoadShopItems()
@@ -28,26 +27,22 @@ public class ShopManager : MonoBehaviour
         shopItems.AddRange(items);
     }
 
-    public bool BuyItem(ShopItem item)
+    public ShopItem BuyItem(ShopItem item)
     {
-        int currentCoins = CoinManager.GetCoins();
-        // Check if the item is not already in the inventory and player has enough coins
-        if (!playerInventory.ContainsItem(item) && currentCoins >= item.itemPrice)
-        {
-            // Deduct the item price from player coins
-            currentCoins -= item.itemPrice;
+        ShopItem selectedItem = FindItemByID(item.id);
+        return selectedItem;
+    }
 
-            // Add the item to the player's inventory
-            playerInventory.AddItem(item);
-
-            Debug.Log("Item bought: " + item.itemName);
-            return true; // Item bought successfully
-        }
-        else
+    private ShopItem FindItemByID(int itemID)
+    {
+        foreach (var item in shopItems)
         {
-            Debug.Log("Unable to buy the item: " + item.itemName);
-            return false; // Unable to buy the item
+            if (item.id == itemID)
+            {
+                return item;
+            }
         }
+        return null;
     }
 }
 
@@ -55,6 +50,7 @@ public class ShopManager : MonoBehaviour
 [CreateAssetMenu(fileName = "New Shop Item", menuName = "Shop/Shop Item")]
 public class ShopItem : ScriptableObject
 {
+    public int id;
     public string itemName;
     public string itemDescription;
     public int itemPrice;
