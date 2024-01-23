@@ -7,6 +7,7 @@ using TMPro;
 public class StartScene : MonoBehaviour
 {
     public string levelToLoad;
+    public string store;
     public TMP_Text currentCoins;
 
     private void Update()
@@ -17,6 +18,11 @@ public class StartScene : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(levelToLoad);
+    }
+
+    public void OpenTask()
+    {
+        SceneManager.LoadScene(store);
     }
 
     public void QuitGame()

@@ -8325,6 +8325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: Level Select
+  store: Store
   currentCoins: {fileID: 729002638}
 --- !u!1 &1257378249
 GameObject:
@@ -10791,6 +10792,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1242664889}
+    - target: {fileID: 2403732971061245238, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenTask
+      objectReference: {fileID: 0}
     - target: {fileID: 3510302931959635565, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
       propertyPath: m_Name
       value: Task Select Button
