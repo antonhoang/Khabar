@@ -11,11 +11,12 @@ public class ShopManager : MonoBehaviour
     GameObject g;
     [SerializeField] Transform scrollview;
     public List<ShopItem> ShopItemsList;
-    public GameObject KhabarDetailPopup;
+    public KhabarDetailPopup khabarDetailPopup;
 
     [System.Serializable]
     public class ShopItem
     {
+        public int id;
         public Sprite Image;
         public int Price;
         public bool IsPurchased = false;
@@ -29,6 +30,7 @@ public class ShopManager : MonoBehaviour
         itemTemplate = scrollview.GetChild(0).gameObject;
         for (int i =0; i < len; i++)
         {
+            
             g = Instantiate(itemTemplate, scrollview);
 
             Image imageComponent = g.transform.GetChild(0).GetComponent<Image>();
@@ -43,18 +45,20 @@ public class ShopManager : MonoBehaviour
 
             EventTrigger trigger = g.AddComponent<EventTrigger>();
 
-            // Add a pointer click event to the EventTrigger
+            ShopItemsList[i].id = i;
+            int currentItemID = ShopItemsList[i].id;
+            Sprite image = ShopItemsList[i].Image;
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
-            entry.callback.AddListener((data) => { OnPanelClick(g); });
+            entry.callback.AddListener((data) => { OnPanelClick(image, currentItemID); });
             trigger.triggers.Add(entry);
         }
         Destroy(itemTemplate);
     }
 
-    void OnPanelClick(GameObject panel)
+    void OnPanelClick(Sprite image, int id)
     {
         Debug.Log("Panel Clicked!");
-        KhabarDetailPopup.SetActive(true);
+        khabarDetailPopup.ShowDetails(image, id);
     }
 }
