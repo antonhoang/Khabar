@@ -28,7 +28,7 @@ public class KhabarDetailPopup : MonoBehaviour
         transform.GetChild(1).GetComponent<TMP_Text>().text = shopItem.descriptionText;
 
         
-         UpdateBuyButton();
+        UpdateBuyButton();
         
 
         gameObject.SetActive(true);
