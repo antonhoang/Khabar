@@ -43,9 +43,12 @@ public class ShopManager : MonoBehaviour
             ShopItemsList[i].id = i;
             int currentItemID = ShopItemsList[i].id;
             Sprite image = ShopItemsList[i].Image;
+            GameObject currentGameObject = g;
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
-            entry.callback.AddListener((data) => { OnPanelClick(image, currentItemID, g); });
+            entry.callback.AddListener((data) => {
+                OnPanelClick(image, currentItemID, currentGameObject);
+            });
             trigger.triggers.Add(entry);
 
             Image imageLock = g.transform.GetChild(3).GetComponent<Image>();
@@ -68,8 +71,16 @@ public class ShopManager : MonoBehaviour
         khabarDetailPopup.ShowDetails(image, id, (itemID, isBought) =>
         {
             ShopItem itemToBuy = ShopItemsList.Find(item => item.id == itemID);
+            //if (ShopItemsList[i].IsPurchased)
+            //{
+            //    imageLock.gameObject.SetActive(false);
+            //}
+            //else
+            //{
+            //    imageLock.gameObject.SetActive(true);
+            //}
             itemToBuy.IsPurchased = isBought;
-            g.transform.GetChild(3).GetComponent<Image>().gameObject.SetActive(isBought);
+            g.transform.GetChild(3).GetComponent<Image>().gameObject.SetActive(!isBought);
         });
     }
 }
