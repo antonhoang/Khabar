@@ -61,7 +61,6 @@
     <Compile Include="Assets/Scripts/LevelScene/LevelSelect.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" />
-    <Compile Include="Assets/Scripts/Managers/InventoryManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" />
     <Compile Include="Assets/Scripts/UI/ImageWithCorners.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" />
@@ -114,7 +113,6 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" />
     <Compile Include="Assets/Scripts/Tabbar/PanelTabBar.cs" />
     <Compile Include="Assets/Scripts/LevelScene/SnapToItem.cs" />
-    <Compile Include="Assets/Scripts/Managers/StoreManager.cs" />
     <Compile Include="Assets/SettingsScreen.cs" />
     <Compile Include="Assets/Scripts/Managers/RoundManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />

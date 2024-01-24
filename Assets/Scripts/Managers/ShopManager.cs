@@ -1,57 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
 public class ShopManager : MonoBehaviour
 {
-    public List<ShopItem> shopItems;
-    public InventoryManager playerInventory;
+    GameObject itemTemplate;
+    GameObject g;
+    [SerializeField] Transform scrollview;
 
-    // Other shop-related functionality can be added here
-
-    private void Start()
+    void Start()
     {
-        // Example: Load items from Scriptable Objects
-        LoadShopItems();
-    }
-
-    void LoadShopItems()
-    {
-        // Clear the existing list
-        shopItems.Clear();
-
-        // Load Scriptable Objects from the Resources folder
-        ShopItem[] items = Resources.LoadAll<ShopItem>("ShopItems");
-
-        // Add loaded items to the list
-        shopItems.AddRange(items);
-    }
-
-    public ShopItem BuyItem(ShopItem item)
-    {
-        ShopItem selectedItem = FindItemByID(item.id);
-        return selectedItem;
-    }
-
-    private ShopItem FindItemByID(int itemID)
-    {
-        foreach (var item in shopItems)
+        itemTemplate = scrollview.GetChild(0).gameObject;
+        for (int i =0; i < 20; i++)
         {
-            if (item.id == itemID)
-            {
-                return item;
-            }
+            g = Instantiate(itemTemplate, scrollview);
         }
-        return null;
+        Destroy(itemTemplate);
     }
-}
-
-
-[CreateAssetMenu(fileName = "New Shop Item", menuName = "Shop/Shop Item")]
-public class ShopItem : ScriptableObject
-{
-    public int id;
-    public string itemName;
-    public string itemDescription;
-    public int itemPrice;
 }
