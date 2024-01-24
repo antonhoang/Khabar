@@ -20,6 +20,7 @@ public class ShopManager : MonoBehaviour
         public Sprite Image;
         public int Price;
         public bool IsPurchased = false;
+        public string descriptionText;
     }
 
     Button buyBtn;
@@ -40,14 +41,21 @@ public class ShopManager : MonoBehaviour
             buyBtn = g.transform.GetChild(2).GetComponent<Button>();
 
             EventTrigger trigger = g.AddComponent<EventTrigger>();
+
             ShopItemsList[i].id = i;
             int currentItemID = ShopItemsList[i].id;
-            Sprite image = ShopItemsList[i].Image;
+
+            Sprite currentImage = ShopItemsList[i].Image;
             GameObject currentGameObject = g;
+
+            int currentPrice = ShopItemsList[i].Price;
+            string descriptionText = ShopItemsList[i].descriptionText;
+            bool isBought = ShopItemsList[i].IsPurchased;
+
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
             entry.callback.AddListener((data) => {
-                OnPanelClick(image, currentItemID, currentGameObject);
+                OnPanelClick(currentImage, currentItemID, currentPrice, descriptionText, isBought, currentGameObject);
             });
             trigger.triggers.Add(entry);
 
@@ -64,21 +72,12 @@ public class ShopManager : MonoBehaviour
         Destroy(itemTemplate);
     }
 
-    void OnPanelClick(Sprite image, int id, GameObject g)
+    void OnPanelClick(Sprite image, int id, int price, string descriptionText, bool isBought, GameObject g)
     {
-        Debug.Log("Panel Clicked!");
 
-        khabarDetailPopup.ShowDetails(image, id, (itemID, isBought) =>
+        khabarDetailPopup.ShowDetails(image, id, price, descriptionText, isBought, (itemID, isBought) =>
         {
             ShopItem itemToBuy = ShopItemsList.Find(item => item.id == itemID);
-            //if (ShopItemsList[i].IsPurchased)
-            //{
-            //    imageLock.gameObject.SetActive(false);
-            //}
-            //else
-            //{
-            //    imageLock.gameObject.SetActive(true);
-            //}
             itemToBuy.IsPurchased = isBought;
             g.transform.GetChild(3).GetComponent<Image>().gameObject.SetActive(!isBought);
         });
