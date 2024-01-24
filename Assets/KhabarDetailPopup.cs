@@ -11,21 +11,23 @@ public class KhabarDetailPopup : MonoBehaviour
 
     private Action<int, bool> buyItemCallback;
 
-    public void ShowDetails(Sprite image, int id)
+    public void ShowDetails(Sprite image, int id, Action<int, bool> callback)
     {
         this.image = image;
         this.id = id;
-
+        buyItemCallback = callback;
         Image targetImage = transform.GetChild(0).GetChild(0).GetComponent<Image>();
-        
         targetImage.sprite = image;
-
+        //targetImage.SetNativeSize();
         gameObject.SetActive(true);
     }
 
-    void BuyItem(Action<int, bool> buyItemCallback)
+    
+
+    public void BuyItem()
     {
-        // check for money
+        int currentCoins = CoinManager.GetCoins();
+        
         bool isBougt = false;
         isBougt = true;
         buyItemCallback(id, isBougt);
