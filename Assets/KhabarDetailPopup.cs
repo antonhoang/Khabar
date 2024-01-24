@@ -12,49 +12,58 @@ public class KhabarDetailPopup : MonoBehaviour
     private Action<int, bool> buyItemCallback;
 
     public void ShowDetails(
-        Sprite image,
-        int id,
-        int price,
-        string descriptionText,
-        bool isBought,
+        ShopManager.ShopItem shopItem,
         Action<int, bool> callback
         )
-    {        
-        this.id = id;
-        this.price = price;
-        this.isBought = isBought;
+    {
+        id = shopItem.id;
+        price = shopItem.Price;
+        isBought = shopItem.IsPurchased;
         buyItemCallback = callback;
         Image targetImage = transform.GetChild(0).GetChild(0).GetComponent<Image>();
-        
-        targetImage.sprite = image;
+
+        targetImage.sprite = shopItem.Image;
         //targetImage.SetNativeSize();
 
-        transform.GetChild(1).GetComponent<TMP_Text>().text = descriptionText;
+        transform.GetChild(1).GetComponent<TMP_Text>().text = shopItem.descriptionText;
+
+        
+         UpdateBuyButton();
+        
+
         gameObject.SetActive(true);
     }
-
-    
 
     public void BuyItem()
     {
         int currentCoins = CoinManager.GetCoins();
-
-        if (isBought)
-        {
-            Button buyButton = transform.GetChild(2).GetChild(0).GetComponent<Button>();
-            buyButton.interactable = !isBought;
-            buyButton.GetComponentInChildren<TMP_Text>().text = "ВЖЕ ПРИДБАНО";
-            //transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = "ВЖЕ ПРИДБАНО";
-        }
 
         if (currentCoins > price && currentCoins > 0)
         {
             CoinManager.RemoveCoins(price);
             isBought = true;
             buyItemCallback(id, isBought);
+
+            UpdateBuyButton();
         }
 
         // else not enough coins 
+    }
+
+    private void UpdateBuyButton()
+    {
+        Button buyButton = transform.GetChild(2).GetChild(0).GetComponent<Button>();
+        
+        if (!isBought) {
+            buyButton.interactable = true;
+            buyButton.GetComponentInChildren<TMP_Text>().text = "ПРИДБАТИ";
+            
+        } else
+        {
+            buyButton.interactable = false;
+            buyButton.GetComponentInChildren<TMP_Text>().text = "ВЖЕ ПРИДБАНО";
+        }
+        
     }
 
     public void Back()
