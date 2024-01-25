@@ -74,36 +74,6 @@ public class RoundManager : MonoBehaviour
 
     private void WinCheck()
     {
-        uiMan.roundOverScreen.SetActive(true);
-
-        uiMan.winScore.text = currentScore.ToString();
-        if(currentScore >= scoreTarget3)
-        {
-            uiMan.windText.text = "Congratulations! You earned 3 stars!";
-            uiMan.winStars3.SetActive(true);
-
-            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
-            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star2", 1);
-            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star3", 1);
-        }
-        else if (currentScore >= scoreTarget2)
-        {
-            uiMan.windText.text = "Congratulations! You earned 2 stars!";
-            uiMan.winStars2.SetActive(true);
-
-            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
-            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star2", 1);
-        }
-
-        else if (currentScore >= scoreTarget1)
-        {
-            uiMan.windText.text = "Congratulations! You earned 1 stars!";
-            uiMan.winStars1.SetActive(true);
-            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
-        }
-        else
-        {
-            uiMan.windText.text = "Oh no! No Stars for you! Try again?";
-        }
+        
     }
 }

@@ -14,7 +14,6 @@ public class UIManager : MonoBehaviour
     public TMP_Text winScore;
     public TMP_Text windText;
 
-    public GameObject winStars1, winStars2, winStars3;
     public GameObject roundOverScreen;
     public GameObject pauseScreen;
 
@@ -76,12 +75,20 @@ public class UIManager : MonoBehaviour
 
     public void TryAgain()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void GoToStore()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Store");
+    }
+
+    public void ContinueGame()
+    {
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 
 }
