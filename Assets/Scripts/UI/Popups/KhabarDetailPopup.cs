@@ -11,6 +11,9 @@ public class KhabarDetailPopup : MonoBehaviour
     private bool isBought;
     private Action<int, bool> buyItemCallback;
 
+    public GameObject supportUs;
+    public GameObject supportUA;
+
     public void ShowDetails(
         ShopManager.ShopItem shopItem,
         Action<int, bool> callback
@@ -68,12 +71,32 @@ public class KhabarDetailPopup : MonoBehaviour
 
     public void SupportUs()
     {
-
+        supportUs.SetActive(true);
     }
 
     public void SupportUkraine()
     {
+        supportUA.SetActive(true);
+    }
 
+    public void SupportUsAction()
+    {
+        Application.OpenURL("https://www.buymeacoffee.com/5xcnzc9ln0/");
+    }
+
+    public void SupportUkraineAction()
+    {
+        Application.OpenURL("https://u24.gov.ua/uk");
+    }
+
+    public void CloseSupportUs()
+    {
+        supportUs.SetActive(false);
+    }
+
+    public void CloseSupportUA()
+    {
+        supportUA.SetActive(false);
     }
 
     public void Back()

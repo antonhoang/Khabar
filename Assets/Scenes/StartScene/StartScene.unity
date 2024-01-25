@@ -956,7 +956,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1660737526}
         m_TargetAssemblyTypeName: SettingsScreen, Assembly-CSharp
         m_MethodName: CloseAboutUs
         m_Mode: 1
@@ -2511,7 +2511,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1660737526}
         m_TargetAssemblyTypeName: SettingsScreen, Assembly-CSharp
         m_MethodName: ClosePrivacyPolicy
         m_Mode: 1
@@ -4393,8 +4393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd15a90d917114be39eff860ee5f98db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textCase: 0
-  textComponent: {fileID: 0}
+  textCase: 1
+  textComponent: {fileID: 1136692524}
 --- !u!1 &742036135
 GameObject:
   m_ObjectHideFlags: 0
@@ -10884,7 +10884,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1660737526}
         m_TargetAssemblyTypeName: SettingsScreen, Assembly-CSharp
         m_MethodName: CloseSupportUs
         m_Mode: 1
@@ -11139,7 +11139,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1660737526}
         m_TargetAssemblyTypeName: SettingsScreen, Assembly-CSharp
         m_MethodName: CloseAboutTheGame
         m_Mode: 1
@@ -11272,7 +11272,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1660737526}
         m_TargetAssemblyTypeName: SettingsScreen, Assembly-CSharp
         m_MethodName: CloseTermsOfUse
         m_Mode: 1
@@ -12492,7 +12492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textCase: 0
-  textComponent: {fileID: 0}
+  textComponent: {fileID: 1670543017}
 --- !u!1 &2087430674
 GameObject:
   m_ObjectHideFlags: 0

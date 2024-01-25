@@ -10,7 +10,8 @@ public class ClickableURL : MonoBehaviour, IPointerClickHandler
     public enum TextCase
     {
         aboutUs,
-        supportUs
+        supportUs,
+        supportUA
     }
 
     public TextCase textCase;
@@ -31,6 +32,11 @@ public class ClickableURL : MonoBehaviour, IPointerClickHandler
         if (textCase == TextCase.supportUs)
         {
             myText += "Ваша підтримка надає життєвий вплив грі, я зроблю все можливе, щоб зробити її кращою. Допоможіть нам, кинувши донат через <link=https://www.buymeacoffee.com/5xcnzc9ln0/>Buy Me a Coffee</link> тут. Дякуємо!";
+        }
+
+        if (textCase == TextCase.supportUA)
+        {
+            myText += "Підтримайте Україну! \n\nДорогі гравці! \nУ цей важливий час для України, ми закликаємо вас до дії.Ваша підтримка може зробити велику різницю для тих, хто переживає труднощі внаслідок подій в країні. \n\nСпільно ми сильніші: \n Відомо, що геймінг-спільнота об'єднана та має великий вплив. Ми віримо в силу спільності та можливість зробити добро разом. <link=https://u24.gov.ua/uk>Долучитися до фонду підтримки України</link>  \n\nДякуємо за вашу доброту та підтримку! Ваш внесок може змінити життя та принести світло в цей темний період. \n\nСлава Україні!";
         }
 
         textComponent.text = myText;
