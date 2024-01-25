@@ -2752,17 +2752,8 @@ MonoBehaviour:
     - {fileID: 0}
   - gemsInRow:
     - {fileID: 0}
-    - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
-    - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - gemsInRow:
-    - {fileID: 0}
-    - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
-    - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -2770,12 +2761,21 @@ MonoBehaviour:
     - {fileID: 0}
   - gemsInRow:
     - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
     - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
     - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
     - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+  - gemsInRow:
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
     - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
+    - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
+    - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
+    - {fileID: 0}
     - {fileID: 0}
   - gemsInRow:
     - {fileID: 0}
@@ -2783,8 +2783,8 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
-    - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
   - gemsInRow:
     - {fileID: 0}
@@ -2792,8 +2792,8 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
-    - {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
   - gemsInRow:
     - {fileID: 0}

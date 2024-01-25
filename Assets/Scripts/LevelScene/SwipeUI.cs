@@ -38,7 +38,19 @@ public class SwipeUI : MonoBehaviour
 
     private void Start()
     {
-        SetScrollBarValue(0);
+        string CURRENT_LEVEL_KEY = "CurrentLevel";
+
+        if (PlayerPrefs.HasKey(CURRENT_LEVEL_KEY))
+        {
+            int currentLevel = PlayerPrefs.GetInt(CURRENT_LEVEL_KEY);
+            SetScrollBarValue(currentLevel);
+        }
+        else
+        {
+            SetScrollBarValue(0);
+        }
+
+        
     }
 
     public void SetScrollBarValue(int index)

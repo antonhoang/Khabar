@@ -9,19 +9,19 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene/StartScene.unity
     guid: fa061fea4a6904c9198e558d18fe7dd8
   - enabled: 1
-    path: Assets/Scenes/Levels/L1.unity
+    path: Assets/Scenes/Levels/L0.unity
     guid: 1b857dc4cea9c4b72a789b7b314677b9
   - enabled: 1
-    path: Assets/Scenes/Levels/L2.unity
+    path: Assets/Scenes/Levels/L1.unity
     guid: 82069b454215443b387d9216e9e61584
   - enabled: 1
-    path: Assets/Scenes/Levels/L3.unity
+    path: Assets/Scenes/Levels/L2.unity
     guid: 56fafbdddf5c347e7948599ccd0e55d6
   - enabled: 1
-    path: Assets/Scenes/Levels/L4.unity
+    path: Assets/Scenes/Levels/L3.unity
     guid: 96269793d85a44470b63ff50de338831
   - enabled: 1
-    path: Assets/Scenes/Levels/L5.unity
+    path: Assets/Scenes/Levels/L4.unity
     guid: 85076731a8422440789bd961b12aee30
   - enabled: 1
     path: Assets/Scenes/Level Select/Level Select.unity
