@@ -84,6 +84,11 @@ public class KhabarDetailPopup : MonoBehaviour
         Application.OpenURL("https://www.buymeacoffee.com/5xcnzc9ln0/");
     }
 
+    public void SupportUsBankAction()
+    {
+        Application.OpenURL("https://send.monobank.ua/jar/3eGqY9Zxn5");
+    }
+
     public void SupportUkraineAction()
     {
         Application.OpenURL("https://u24.gov.ua/uk");
