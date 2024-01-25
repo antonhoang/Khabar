@@ -3145,8 +3145,8 @@ MonoBehaviour:
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 64
-  m_fontSizeMax: 64
+  m_fontSizeMin: 40
+  m_fontSizeMax: 45
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -3685,8 +3685,8 @@ MonoBehaviour:
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 64
-  m_fontSizeMax: 64
+  m_fontSizeMin: 40
+  m_fontSizeMax: 45
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -4772,8 +4772,8 @@ MonoBehaviour:
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 64
-  m_fontSizeMax: 64
+  m_fontSizeMin: 40
+  m_fontSizeMax: 45
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -5752,8 +5752,8 @@ MonoBehaviour:
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 46
-  m_fontSizeMax: 46
+  m_fontSizeMin: 20
+  m_fontSizeMax: 45
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -7441,8 +7441,8 @@ MonoBehaviour:
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 64
-  m_fontSizeMax: 64
+  m_fontSizeMin: 40
+  m_fontSizeMax: 45
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -8249,8 +8249,8 @@ MonoBehaviour:
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 64
-  m_fontSizeMax: 64
+  m_fontSizeMin: 40
+  m_fontSizeMax: 45
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -10405,7 +10405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054798592750413300, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
       propertyPath: m_fontSize
-      value: 48
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2054798592750413300, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
       propertyPath: m_margin.w
@@ -10429,7 +10429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054798592750413300, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
       propertyPath: m_fontSizeBase
-      value: 48
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2054798592750413300, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
       propertyPath: m_sharedMaterial
@@ -12999,7 +12999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054798592750413300, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
       propertyPath: m_fontSize
-      value: 48
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2054798592750413300, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
       propertyPath: m_margin.w
@@ -13031,7 +13031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054798592750413300, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
       propertyPath: m_fontSizeBase
-      value: 48
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2054798592750413300, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
       propertyPath: m_sharedMaterial
