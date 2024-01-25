@@ -1096,8 +1096,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0425\u0430\u0431\u0430\u0440"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0caa0e8c434e44e6a74b3aaf842d2fe, type: 2}
+  m_sharedMaterial: {fileID: 389338358305147090, guid: d0caa0e8c434e44e6a74b3aaf842d2fe, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
