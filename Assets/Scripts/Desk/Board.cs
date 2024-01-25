@@ -12,6 +12,8 @@ public class Board : MonoBehaviour
     public enum BoardState { wait, move }
     public BoardState currentState = BoardState.move;
     public MatchFinder matchFind;
+    private BoardLayout boardLayout;
+    private Gem[,] layoutStore;
 
     // Gem 
     public Gem[] gems;
@@ -29,12 +31,14 @@ public class Board : MonoBehaviour
     {
         matchFind = FindObjectOfType<MatchFinder>();
         roundMan = FindObjectOfType<RoundManager>();
+        boardLayout = GetComponent<BoardLayout>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         allGems = new Gem[width, height];
+        layoutStore = new Gem[width, height];
         Setup();
         SetupCamera();
     }
@@ -50,26 +54,37 @@ public class Board : MonoBehaviour
 
     private void Setup()
     {
-        for(int x = 0; x < width; x++)
+        if (boardLayout != null)
         {
-            for(int y = 0; y < height; y++)
+            layoutStore = boardLayout.GetLayout();
+        }
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
             {
                 Vector2 pos = new Vector2(x, y);
                 GameObject bgTile = Instantiate(bgTilePrefab, pos, Quaternion.identity);
                 bgTile.transform.parent = transform;
                 bgTile.name = "BG Tile - " + x + ", " + y;
 
-                int gemToUse = Random.Range(0, gems.Length);
-
-                int iterations = 0;
-
-                while (MatchesAt(new Vector2Int(x, y), gems[gemToUse]) && iterations < 100)
+                if (layoutStore[x, y] != null)
                 {
-                    gemToUse = Random.Range(0, gems.Length);
-                    iterations++;
+                    SpawnGem(new Vector2Int(x, y), layoutStore[x, y]);
                 }
+                else
+                {
 
-                SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+                    int gemToUse = Random.Range(0, gems.Length);
+
+                    int iterations = 0;
+                    while (MatchesAt(new Vector2Int(x, y), gems[gemToUse]) && iterations < 100)
+                    {
+                        gemToUse = Random.Range(0, gems.Length);
+                        iterations++;
+                    }
+
+                    SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+                }
             }
         }
     }
