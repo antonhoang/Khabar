@@ -4672,7 +4672,6 @@ GameObject:
   - component: {fileID: 2059658640}
   - component: {fileID: 2059658642}
   - component: {fileID: 2059658641}
-  - component: {fileID: 2059658643}
   - component: {fileID: 2059658644}
   m_Layer: 5
   m_Name: Content
@@ -4745,19 +4744,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
---- !u!114 &2059658643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059658639}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c51247f3f6654fcc8d2f91d309667d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollbar: {fileID: 248994056}
 --- !u!114 &2059658644
 MonoBehaviour:
   m_ObjectHideFlags: 0

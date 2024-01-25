@@ -8,8 +8,6 @@ public class SwipeUI : MonoBehaviour
 {
     [SerializeField]
     private Scrollbar scrollBar;                    // Scrollbar¿« ¿ßƒ°∏¶ πŸ≈¡¿∏∑Œ «ˆ¿Á ∆‰¿Ã¡ˆ ∞ÀªÁ
-    //[SerializeField]
-    //private Transform[] circleContents;             // «ˆ¿Á ∆‰¿Ã¡ˆ∏¶ ≥™≈∏≥ª¥¬ ø¯ Image UIµÈ¿« Transform
     [SerializeField]
     private float swipeTime = 0.2f;         // ∆‰¿Ã¡ˆ∞° Swipe µ«¥¬ Ω√∞£
     [SerializeField]
@@ -22,7 +20,6 @@ public class SwipeUI : MonoBehaviour
     private float startTouchX;              // ≈Õƒ° Ω√¿€ ¿ßƒ°
     private float endTouchX;                    // ≈Õƒ° ¡æ∑· ¿ßƒ°
     private bool isSwipeMode = false;       // «ˆ¿Á Swipe∞° µ«∞Ì ¿÷¥¬¡ˆ √º≈©
-    private float circleContentScale = 1.6f;    // «ˆ¿Á ∆‰¿Ã¡ˆ¿« ø¯ ≈©±‚(πË¿≤)
 
     private void Awake()
     {

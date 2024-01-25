@@ -66,6 +66,16 @@ public class KhabarDetailPopup : MonoBehaviour
         
     }
 
+    public void SupportUs()
+    {
+
+    }
+
+    public void SupportUkraine()
+    {
+
+    }
+
     public void Back()
     {
         gameObject.SetActive(false);
