@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
-    public float roundTime = 60f;
+    //public float roundTime = 60f;
     private UIManager uiMan;
     private bool endingRound = false;
     private Board board;
@@ -51,25 +51,25 @@ public class RoundManager : MonoBehaviour
 
     private void RoundTime()
     {
-        if(roundTime > 0)
-        {
-            roundTime -= Time.deltaTime;
+        //if(roundTime > 0)
+        //{
+        //    roundTime -= Time.deltaTime;
 
-            if (roundTime <= 0)
-            {
-                roundTime = 0;
+        //    if (roundTime <= 0)
+        //    {
+        //        roundTime = 0;
 
-                endingRound = true;
-            }
-        }
+        //        endingRound = true;
+        //    }
+        //}
 
-        if (endingRound && board.currentState == Board.BoardState.move)
-        {
-            WinCheck();
-            endingRound = false;
-        }
+        //if (endingRound && board.currentState == Board.BoardState.move)
+        //{
+        //    WinCheck();
+        //    endingRound = false;
+        //}
 
-        uiMan.timeText.text = roundTime.ToString("0.0") + "s";
+        //uiMan.timeText.text = roundTime.ToString("0.0") + "s";
     }
 
     private void WinCheck()

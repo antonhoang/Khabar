@@ -58,7 +58,7 @@ public class Gem : MonoBehaviour
         if (mousePressed && Input.GetMouseButtonUp(0))
         {
             mousePressed = false;
-            if(board.currentState == Board.BoardState.move && board.roundMan.roundTime > 0)
+            if(board.currentState == Board.BoardState.move)
             {
                 finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CalculateAngle();
@@ -75,7 +75,7 @@ public class Gem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(board.currentState == Board.BoardState.move && board.roundMan.roundTime > 0)
+        if(board.currentState == Board.BoardState.move)
         {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePressed = true;
@@ -91,43 +91,66 @@ public class Gem : MonoBehaviour
 
         if (Vector3.Distance(firstTouchPosition, finalTouchPosition) > .5f)
         {
-            MovePieces();
+           MovePieces();            
         }
     }
 
     private void MovePieces()
     {
-        previousPos = posIndex;
+        if (type != GemType.stone)
+        {
+            previousPos = posIndex;
 
-        if(swipeAndgle < 45 && swipeAndgle > -45 && posIndex.x < board.width - 1)
-        {
-            otherGem = board.allGems[posIndex.x + 1, posIndex.y];
-            otherGem.posIndex.x--;
-            posIndex.x++;
-        }
-        else if (swipeAndgle > 45 && swipeAndgle <= 135 && posIndex.y < board.height - 1)
-        {
-            otherGem = board.allGems[posIndex.x, posIndex.y + 1];
-            otherGem.posIndex.y--;
-            posIndex.y++;
-        }
-        else if (swipeAndgle < 45 && swipeAndgle >= -135 && posIndex.y > 0)
-        {
-            otherGem = board.allGems[posIndex.x, posIndex.y - 1];
-            otherGem.posIndex.y++;
-            posIndex.y--;
-        }
-        else if (swipeAndgle > 135 || swipeAndgle < -135 && posIndex.x > 0)
-        {
-            otherGem = board.allGems[posIndex.x - 1, posIndex.y];
-            otherGem.posIndex.x++;
-            posIndex.x--;
-        }
+            if (swipeAndgle < 45 && swipeAndgle > -45 && posIndex.x < board.width - 1)
+            {
+                otherGem = board.allGems[posIndex.x + 1, posIndex.y];
+                if (otherGem.type != GemType.stone) {
+                    otherGem.posIndex.x--;
+                    posIndex.x++;
+                }
+                
+            }
+            else if (swipeAndgle > 45 && swipeAndgle <= 135 && posIndex.y < board.height - 1)
+            {
+                otherGem = board.allGems[posIndex.x, posIndex.y + 1];
+                if (otherGem.type != GemType.stone)
+                {
+                    otherGem.posIndex.y--;
+                    posIndex.y++;
+                }
+            }
+            else if (swipeAndgle < 45 && swipeAndgle >= -135 && posIndex.y > 0)
+            {
+                otherGem = board.allGems[posIndex.x, posIndex.y - 1];
+                if (otherGem.type != GemType.stone)
+                {
+                    otherGem.posIndex.y++;
+                    posIndex.y--;
+                }
+            }
+            else if (swipeAndgle > 135 || swipeAndgle < -135 && posIndex.x > 0)
+            {
+                otherGem = board.allGems[posIndex.x - 1, posIndex.y];
+                if (otherGem.type != GemType.stone)
+                {
+                    otherGem.posIndex.x++;
+                    posIndex.x--;
+                }
+            }
 
-        board.allGems[posIndex.x, posIndex.y] = this;
-        board.allGems[otherGem.posIndex.x, otherGem.posIndex.y] = otherGem;
+            if (otherGem != null)
+            {
+                if (otherGem.type != GemType.stone)
+                {
 
-        StartCoroutine(CheckMoveCo());
+                    board.allGems[posIndex.x, posIndex.y] = this;
+                    board.allGems[otherGem.posIndex.x, otherGem.posIndex.y] = otherGem;
+
+                    StartCoroutine(CheckMoveCo());
+                }
+            }
+           
+        }
     }
 
     public IEnumerator CheckMoveCo()
