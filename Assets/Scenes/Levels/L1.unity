@@ -5209,7 +5209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelSelect: Level Select
-  movesLeft: 2
+  movesLeft: 25
   timeText: {fileID: 0}
   scoreText: {fileID: 1730440238}
   movesTextLeft: {fileID: 1833791699}
