@@ -10,6 +10,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Transform scrollview;
     public ShopItemList ShopItemsList;
     public KhabarDetailPopup khabarDetailPopup;
+    public TMP_Text currentCoins;
 
     [System.Serializable]
     public class ShopItem
@@ -24,6 +25,10 @@ public class ShopManager : MonoBehaviour
     private GameObject itemTemplate;
     private Dictionary<int, bool> purchasedStatus = new Dictionary<int, bool>();
 
+    private void Update()
+    {
+        currentCoins.text = CoinManager.GetCoins().ToString();
+    }
 
     void Start()
     {
