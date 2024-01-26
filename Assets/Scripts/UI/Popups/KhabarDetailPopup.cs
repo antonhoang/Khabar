@@ -23,14 +23,15 @@ public class KhabarDetailPopup : MonoBehaviour
         price = shopItem.Price;
         isBought = shopItem.IsPurchased;
         buyItemCallback = callback;
-        Image targetImage = transform.GetChild(0).GetChild(0).GetComponent<Image>();
+        Image targetImage = transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponentInChildren<Image>();
 
         targetImage.sprite = shopItem.Image;
         //targetImage.SetNativeSize();
 
-        transform.GetChild(1).GetComponent<TMP_Text>().text = shopItem.descriptionText;
+        TMP_Text targetText = transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetComponent<TMP_Text>();
+        targetText.text = shopItem.descriptionText;
 
-        
+
         UpdateBuyButton();
         
 
@@ -55,8 +56,9 @@ public class KhabarDetailPopup : MonoBehaviour
 
     private void UpdateBuyButton()
     {
-        Button buyButton = transform.GetChild(2).GetChild(0).GetComponent<Button>();
-        
+        Button buyButton = transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetComponent<Button>();
+
+
         if (!isBought) {
             buyButton.interactable = true;
             buyButton.GetComponentInChildren<TMP_Text>().text = "ПРИДБАТИ";
