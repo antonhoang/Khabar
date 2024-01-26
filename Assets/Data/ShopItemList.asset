@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - id: 0
-    Image: {fileID: 21300000, guid: efe6631295d784b278e0c8f4d1f13ad9, type: 3}
+    Image: {fileID: 21300000, guid: 840da6440c4b74547a58744759b36836, type: 3}
     Price: 20000
     IsPurchased: 1
     descriptionText: "\u041B\u0430\u0441\u043A\u0430\u0432\u043E \u043F\u0440\u043E\u0441\u0438\u043C\u043E
@@ -35,17 +35,17 @@ MonoBehaviour:
       \u0432\u0438\u0437\u043D\u0430\u0447\u0438\u0442\u0438 \u0441\u0432\u043E\u0457
       \u043F\u0440\u0430\u0432\u0438\u043B\u0430."
   - id: 1
-    Image: {fileID: 21300000, guid: 0eeb8d3f61d2d4a309a6c3fada8d6187, type: 3}
+    Image: {fileID: 21300000, guid: 8a47f37e9e821422da87670bb511fe6d, type: 3}
     Price: 2000
     IsPurchased: 0
     descriptionText: asdfasdf
   - id: 2
-    Image: {fileID: 21300000, guid: d796dce2a1e4ea744ae99785fb88ed2b, type: 3}
+    Image: {fileID: 21300000, guid: 4ceab3e55c62b455fa66ef2942206b90, type: 3}
     Price: 0
     IsPurchased: 0
     descriptionText: asdfasdf
   - id: 3
-    Image: {fileID: 21300000, guid: 0bdb4c9a82fb340629251f719608d803, type: 3}
+    Image: {fileID: 21300000, guid: 7a5e6796b584144b49a8b389cd1088a6, type: 3}
     Price: 200
     IsPurchased: 1
     descriptionText: asdfasdf
