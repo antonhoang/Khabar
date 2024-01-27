@@ -46,24 +46,27 @@ public class UIManager : MonoBehaviour
 
     public void PauseUnpause()
     {
-        if(!pauseScreen.activeInHierarchy)
+        if(!pauseScreen.activeSelf)
         {
-            pauseScreen.SetActive(true);
             Time.timeScale = 0f;
+            pauseScreen.SetActive(true);
+            
         } else
         {
-            pauseScreen.SetActive(false);
             Time.timeScale = 1f;
+            pauseScreen.SetActive(false);
         }
     }
 
     public void ShuffleBoard()
     {
+        Time.timeScale = 1f;
         theBoard.ShuffleBoard();
     }
 
     public void QuitGame()
     {
+        Time.timeScale = 1f;
         Application.Quit();
     }
 
@@ -87,8 +90,8 @@ public class UIManager : MonoBehaviour
 
     public void ContinueGame()
     {
-        pauseScreen.SetActive(false);
         Time.timeScale = 1f;
+        pauseScreen.SetActive(false);
     }
 
 }

@@ -9,6 +9,7 @@ public class LevelSelect : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenu);
     }
 }
