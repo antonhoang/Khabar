@@ -17,7 +17,8 @@ public class ShopManager : MonoBehaviour
     {
         public int id;
         public Sprite Image;
-        public int Price;
+        public int price;
+        public string name;
         public bool IsPurchased;
         public string descriptionText;
     }
@@ -60,9 +61,15 @@ public class ShopManager : MonoBehaviour
     {
         Image imageComponent = item.transform.GetChild(0).GetComponent<Image>();
         imageComponent.sprite = ShopItemsList.items[index].Image;
-        SetImageAlpha(imageComponent, 0.5f);
+        if (ShopItemsList.items[index].IsPurchased)
+        {
+            SetImageAlpha(imageComponent, 1f);
+        } else
+        {
+            SetImageAlpha(imageComponent, 0.5f);
+        }
 
-        item.transform.GetChild(1).GetComponent<TMP_Text>().text = ShopItemsList.items[index].Price.ToString();
+        item.transform.GetChild(1).GetComponent<TMP_Text>().text = ShopItemsList.items[index].name.ToString();
         ShopItemsList.items[index].id = index;
     }
 
@@ -99,6 +106,10 @@ public class ShopManager : MonoBehaviour
         {
             shopItem.IsPurchased = isBought;
             item.transform.GetChild(3).GetComponent<Image>().gameObject.SetActive(!isBought);
+
+            Image imageComponent = item.transform.GetChild(0).GetComponent<Image>();
+            imageComponent.sprite = shopItem.Image;
+            SetImageAlpha(imageComponent, 1f);
         },
         isClosed =>
         {

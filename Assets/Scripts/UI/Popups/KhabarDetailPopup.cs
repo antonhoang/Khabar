@@ -22,7 +22,7 @@ public class KhabarDetailPopup : MonoBehaviour
         )
     {
         id = shopItem.id;
-        price = shopItem.Price;
+        price = shopItem.price;
         isBought = shopItem.IsPurchased;
         buyItemCallback = callback;
         this.backButtonCallback = backButtonCallback;
