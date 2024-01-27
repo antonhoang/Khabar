@@ -93,10 +93,16 @@ public class ShopManager : MonoBehaviour
 
     void OnPanelClick(ShopItem shopItem, GameObject item)
     {
+        Button backbtn = transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Button>();
+        backbtn.gameObject.SetActive(false);
         khabarDetailPopup.ShowDetails(shopItem, (itemID, isBought) =>
         {
             shopItem.IsPurchased = isBought;
             item.transform.GetChild(3).GetComponent<Image>().gameObject.SetActive(!isBought);
+        },
+        isClosed =>
+        {
+            backbtn.gameObject.SetActive(true);
         });
     }
    

@@ -10,19 +10,22 @@ public class KhabarDetailPopup : MonoBehaviour
     private int id, price;
     private bool isBought;
     private Action<int, bool> buyItemCallback;
+    private Action<bool> backButtonCallback;
 
     public GameObject supportUs;
     public GameObject supportUA;
 
     public void ShowDetails(
         ShopManager.ShopItem shopItem,
-        Action<int, bool> callback
+        Action<int, bool> callback,
+        Action<bool> backButtonCallback
         )
     {
         id = shopItem.id;
         price = shopItem.Price;
         isBought = shopItem.IsPurchased;
         buyItemCallback = callback;
+        this.backButtonCallback = backButtonCallback;
         Image targetImage = transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>();
 
         targetImage.sprite = shopItem.Image;
@@ -61,12 +64,12 @@ public class KhabarDetailPopup : MonoBehaviour
 
         if (!isBought) {
             buyButton.interactable = true;
-            buyButton.GetComponentInChildren<TMP_Text>().text = "ПРИДБАТИ";
+            buyButton.GetComponentInChildren<TMP_Text>().text = "Придбати";
             
         } else
         {
             buyButton.interactable = false;
-            buyButton.GetComponentInChildren<TMP_Text>().text = "ВЖЕ ПРИДБАНО";
+            buyButton.GetComponentInChildren<TMP_Text>().text = "Вже придбано";
         }
         
     }
@@ -108,6 +111,7 @@ public class KhabarDetailPopup : MonoBehaviour
 
     public void Back()
     {
+        backButtonCallback(true);
         gameObject.SetActive(false);
     }
 
