@@ -37,15 +37,15 @@ MonoBehaviour:
   - id: 1
     Image: {fileID: 21300000, guid: 8a47f37e9e821422da87670bb511fe6d, type: 3}
     Price: 2000
-    IsPurchased: 1
+    IsPurchased: 0
     descriptionText: asdfasdf
   - id: 2
     Image: {fileID: 21300000, guid: 4ceab3e55c62b455fa66ef2942206b90, type: 3}
     Price: 0
-    IsPurchased: 1
+    IsPurchased: 0
     descriptionText: asdfasdf
   - id: 3
     Image: {fileID: 21300000, guid: 7a5e6796b584144b49a8b389cd1088a6, type: 3}
     Price: 200
-    IsPurchased: 1
+    IsPurchased: 0
     descriptionText: asdfasdf
