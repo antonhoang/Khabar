@@ -66,9 +66,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/DropdownSample.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/AutoPerfControl.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/Scaler/IndexerVisualisation.cs" />
     <Compile Include="Assets/Scripts/Desk/MatchFinder.cs" />
     <Compile Include="Assets/Scripts/Desk/Board.cs" />
     <Compile Include="Assets/Scripts/Managers/ShopManager.cs" />
@@ -78,15 +76,9 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01_UGUI.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark04.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/TestSequence.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/ScalerProfiles/ScalerProfileListItem.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ChatController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/SampleFactory.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/Bottleneck/BeeScript.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/HighLevelLoadManager.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/LoadLevel.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexJitter.cs" />
     <Compile Include="Assets/Scripts/UI/UIHelpers/ImageWithCorners.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" />
@@ -102,13 +94,9 @@
     <Compile Include="Assets/Scripts/Desk/Gem.cs" />
     <Compile Include="Assets/Scripts/Managers/CoinManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/Scaler/ScalerVisualisation.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/ShowFPS.cs" />
     <Compile Include="Assets/Scripts/LevelScene/LevelSelectButton.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/ClusterInfo/ClusterInfoTest.cs" />
     <Compile Include="Assets/TouchScroll.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/Bottleneck/BottleneckUI.cs" />
     <Compile Include="Assets/Scripts/UI/Popups/KhabarDetailPopup.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_B.cs" />
     <Compile Include="Assets/Scripts/Managers/UIManager.cs" />
@@ -122,16 +110,10 @@
     <Compile Include="Assets/Scripts/Tabbar/TabScaling.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/AutoPerfUI.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/MidLevelLoadManager.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/Blockwall/ObjectSpawner.cs" />
     <Compile Include="Assets/Scripts/UI/UIHelpers/L1TopBar.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" />
     <Compile Include="Assets/Scripts/Tabbar/PanelTabBar.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/Boost/BoostUI.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/SpinLoad.cs" />
     <Compile Include="Assets/Scripts/LevelScene/SnapToItem.cs" />
-    <Compile Include="Assets/Samples/Adaptive Performance/4.0.1/Environment/ScalerProfiles/ScalerProfileChanger.cs" />
     <Compile Include="Assets/BoardLayout.cs" />
     <Compile Include="Assets/Scripts/Managers/RoundManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />
@@ -942,10 +924,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Settings.csproj">
-      <Project>{0B5586F8-B9D3-8AC0-9C16-AB700B713612}</Project>
-      <Name>Settings</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
