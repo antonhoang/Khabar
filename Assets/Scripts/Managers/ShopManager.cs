@@ -4,27 +4,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.EventSystems;
+using System.IO;
 
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] Transform scrollview;
-    public ShopItemList ShopItemsList;
+    public ShopItem[] ShopItemsList;
     public KhabarDetailPopup khabarDetailPopup;
     public TMP_Text currentCoins;
 
-    [System.Serializable]
-    public class ShopItem
-    {
-        public int id;
-        public Sprite Image;
-        public int price;
-        public string name;
-        public bool IsPurchased;
-        public string descriptionText;
-    }
-
     private GameObject itemTemplate;
-    private Dictionary<int, bool> purchasedStatus = new Dictionary<int, bool>();
 
     private void Update()
     {
@@ -33,19 +22,67 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Persistent Data Path: " + Application.persistentDataPath);
+        LoadShopData();
         InitializeShop();
+        SaveShopData();
+    }
+
+    void SaveShopData()
+    {
+        List<ShopItemModel> shopItemModels = new List<ShopItemModel>();
+
+        foreach (ShopItem shopItem in ShopItemsList)
+        {
+            ShopItemModel model = new ShopItemModel
+            {
+                id = shopItem.id,
+                price = shopItem.price,
+                title = shopItem.title,
+                isPurchased = shopItem.isPurchased,
+                descriptionText = shopItem.descriptionText
+            };
+
+            shopItemModels.Add(model);
+        }
+
+        ShopDataWrapper wrapper = new ShopDataWrapper(shopItemModels);
+
+        string json = JsonUtility.ToJson(wrapper);
+
+        File.WriteAllText(Application.persistentDataPath + "/shopdata.json", json);
+    }
+
+    void LoadShopData()
+    {
+        string path = Application.persistentDataPath + "/shopdata.json";
+
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            List<ShopItemModel> shopItemModels = JsonUtility.FromJson<List<ShopItemModel>>(json);
+
+            for (int i = 0; i < shopItemModels.Count && i < ShopItemsList.Length; i++)
+            {
+                ShopItemModel model = shopItemModels[i];
+                ShopItem shopItem = ShopItemsList[i];
+
+                // Update only relevant properties
+                shopItem.isPurchased = model.isPurchased;
+            }
+        }
     }
 
     void InitializeShop()
     {
-        int len = ShopItemsList.items.Count;
+        int len = ShopItemsList.Length;
         itemTemplate = scrollview.GetChild(0).gameObject;
 
         for (int i = 0; i < len; i++)
         {
             GameObject newItem = InstantiateItem();
             SetupItemUI(newItem, i);
-            SetupEventTrigger(newItem, ShopItemsList.items[i]);
+            SetupEventTrigger(newItem, ShopItemsList[i]);
             SetupLockImage(newItem, i);
         }
         
@@ -60,8 +97,8 @@ public class ShopManager : MonoBehaviour
     void SetupItemUI(GameObject item, int index)
     {
         Image imageComponent = item.transform.GetChild(0).GetComponent<Image>();
-        imageComponent.sprite = ShopItemsList.items[index].Image;
-        if (ShopItemsList.items[index].IsPurchased)
+        imageComponent.sprite = ShopItemsList[index].Image;
+        if (ShopItemsList[index].isPurchased)
         {
             SetImageAlpha(imageComponent, 1f);
         } else
@@ -69,8 +106,8 @@ public class ShopManager : MonoBehaviour
             SetImageAlpha(imageComponent, 0.5f);
         }
 
-        item.transform.GetChild(1).GetComponent<TMP_Text>().text = ShopItemsList.items[index].name.ToString();
-        ShopItemsList.items[index].id = index;
+        item.transform.GetChild(1).GetComponent<TMP_Text>().text = ShopItemsList[index].title.ToString();
+        ShopItemsList[index].id = index;
     }
 
     void SetupEventTrigger(GameObject item, ShopItem shopItem)
@@ -89,7 +126,7 @@ public class ShopManager : MonoBehaviour
     void SetupLockImage(GameObject item, int index)
     {
         Image imageLock = item.transform.GetChild(3).GetComponent<Image>();
-        imageLock.gameObject.SetActive(!ShopItemsList.items[index].IsPurchased);
+        imageLock.gameObject.SetActive(!ShopItemsList[index].isPurchased);
     }
 
     void SetImageAlpha(Image image, float alpha)
@@ -104,9 +141,10 @@ public class ShopManager : MonoBehaviour
         backbtn.gameObject.SetActive(false);
         khabarDetailPopup.ShowDetails(shopItem, (itemID, isBought) =>
         {
-            shopItem.IsPurchased = isBought;
+            shopItem.isPurchased = isBought;
             item.transform.GetChild(3).GetComponent<Image>().gameObject.SetActive(!isBought);
 
+            SaveShopData();
             Image imageComponent = item.transform.GetChild(0).GetComponent<Image>();
             imageComponent.sprite = shopItem.Image;
             SetImageAlpha(imageComponent, 1f);
@@ -117,4 +155,15 @@ public class ShopManager : MonoBehaviour
         });
     }
    
+}
+
+[System.Serializable]
+public class ShopDataWrapper
+{
+    public ShopItemModel[] shopItems;
+
+    public ShopDataWrapper(List<ShopItemModel> itemList)
+    {
+        shopItems = itemList.ToArray();
+    }
 }

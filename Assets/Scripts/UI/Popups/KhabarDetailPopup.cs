@@ -16,14 +16,14 @@ public class KhabarDetailPopup : MonoBehaviour
     public GameObject supportUA;
 
     public void ShowDetails(
-        ShopManager.ShopItem shopItem,
+        ShopItem shopItem,
         Action<int, bool> callback,
         Action<bool> backButtonCallback
         )
     {
         id = shopItem.id;
         price = shopItem.price;
-        isBought = shopItem.IsPurchased;
+        isBought = shopItem.isPurchased;
         buyItemCallback = callback;
         this.backButtonCallback = backButtonCallback;
         Image targetImage = transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>();
