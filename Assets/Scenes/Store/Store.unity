@@ -1736,6 +1736,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0168c0e8275f94b5cbc54cc2f82308f4, type: 2}
   - {fileID: 11400000, guid: 79b9b4a22cb9947ae86c8251abc1ce23, type: 2}
   - {fileID: 11400000, guid: 1b31a72f1768340719cad837ec5bd7ff, type: 2}
+  - {fileID: 11400000, guid: 9aa89b09b65204a5a9ec773561e3778d, type: 2}
   khabarDetailPopup: {fileID: 1477614379}
   currentCoins: {fileID: 830244746}
 --- !u!1001 &714533776
