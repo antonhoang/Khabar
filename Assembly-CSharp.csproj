@@ -96,6 +96,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" />
     <Compile Include="Assets/Scripts/Desk/Gem.cs" />
     <Compile Include="Assets/Scripts/Utilities/PriceFormatter.cs" />
+    <Compile Include="Assets/UniversalLevelManager.cs" />
     <Compile Include="Assets/Scripts/Managers/CoinManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" />

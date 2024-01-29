@@ -11,8 +11,6 @@ public class UIManager : MonoBehaviour
     public TMP_Text timeText;
     public TMP_Text scoreText;
     public TMP_Text movesTextLeft;
-    public TMP_Text winScore;
-    public TMP_Text windText;
 
     public GameObject roundOverScreen;
     public GameObject pauseScreen;
