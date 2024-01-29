@@ -82,7 +82,7 @@ public class ShopManager : MonoBehaviour
         {
             GameObject newItem = InstantiateItem();
             SetupItemUI(newItem, i);
-            SetupEventTrigger(newItem, ShopItemsList[i]);
+            SetupOnShopItemClick(newItem, ShopItemsList[i]);
             SetupLockImage(newItem, i);
         }
         
@@ -112,15 +112,15 @@ public class ShopManager : MonoBehaviour
 
     void SetupEventTrigger(GameObject item, ShopItem shopItem)
     {
-        ShopItem localShopItem = shopItem;
-        EventTrigger trigger = item.AddComponent<EventTrigger>();
-        EventTrigger.Entry entry = new EventTrigger.Entry();
-        entry.eventID = EventTriggerType.PointerClick;
-        entry.callback.AddListener((data) =>
-        {
-            OnPanelClick(localShopItem, item);
-        });
-        trigger.triggers.Add(entry);
+        //ShopItem localShopItem = shopItem;
+        //EventTrigger trigger = item.AddComponent<EventTrigger>();
+        //EventTrigger.Entry entry = new EventTrigger.Entry();
+        //entry.eventID = EventTriggerType.PointerClick;
+        //entry.callback.AddListener((data) =>
+        //{
+        //    OnPanelClick(localShopItem, item);
+        //});
+        //trigger.triggers.Add(entry);
     }
 
     void SetupLockImage(GameObject item, int index)
@@ -133,6 +133,13 @@ public class ShopManager : MonoBehaviour
     {
         Color currentColor = image.color;
         image.color = new Color(currentColor.r, currentColor.g, currentColor.b, alpha);
+    }
+
+    void SetupOnShopItemClick(GameObject item, ShopItem shopItem)
+    {
+        OnShopItemClick clickHandler = item.AddComponent<OnShopItemClick>();
+        clickHandler.Initialize(shopItem);
+        clickHandler.OnItemClick += OnPanelClick;
     }
 
     void OnPanelClick(ShopItem shopItem, GameObject item)
