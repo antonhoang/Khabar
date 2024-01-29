@@ -47,8 +47,6 @@ public class OnShopItemClick : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     }
 
-
-
 }
 
 

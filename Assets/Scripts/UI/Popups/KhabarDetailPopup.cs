@@ -26,19 +26,35 @@ public class KhabarDetailPopup : MonoBehaviour
         isBought = shopItem.isPurchased;
         buyItemCallback = callback;
         this.backButtonCallback = backButtonCallback;
-        Image targetImage = transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>();
 
-        targetImage.sprite = shopItem.Image;
-        //targetImage.SetNativeSize();
-
-        TMP_Text targetText = transform.GetChild(1).GetComponentInChildren<TMP_Text>();
-        targetText.text = shopItem.descriptionText;
-
-
+        SetImageTarget(shopItem);
+        SetTextDescription(shopItem);
+        SetTextPrice(shopItem);
         UpdateBuyButton();
         
 
         gameObject.SetActive(true);
+    }
+
+    void SetImageTarget(ShopItem shopItem)
+    {
+        Image targetImage = transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>();
+        targetImage.sprite = shopItem.Image;
+    } 
+
+    void SetTextDescription(ShopItem shopItem)
+    {
+        TMP_Text targetText = transform.GetChild(1).GetComponentInChildren<TMP_Text>();
+        targetText.text = shopItem.descriptionText;
+    }
+
+    void SetTextPrice(ShopItem shopItem)
+    {
+        
+        TMP_Text targetText = transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponentInChildren<TMP_Text>();
+
+        PriceFormatter priceFormatter = new PriceFormatter();
+        targetText.text = priceFormatter.FormatPrice(shopItem.price); 
     }
 
     public void BuyItem()
