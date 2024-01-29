@@ -60,16 +60,23 @@ public class ShopManager : MonoBehaviour
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            List<ShopItemModel> shopItemModels = JsonUtility.FromJson<List<ShopItemModel>>(json);
+            ShopDataWrapper wrapper = JsonUtility.FromJson<ShopDataWrapper>(json);
 
-            for (int i = 0; i < shopItemModels.Count && i < ShopItemsList.Length; i++)
+            if (wrapper != null)
             {
-                ShopItemModel model = shopItemModels[i];
-                ShopItem shopItem = ShopItemsList[i];
+                List<ShopItemModel> shopItemModels = wrapper.shopItems;
 
-                // Update only relevant properties
-                shopItem.isPurchased = model.isPurchased;
+                for (int i = 0; i < shopItemModels.Count && i < ShopItemsList.Length; i++)
+                {
+                    ShopItemModel model = shopItemModels[i];
+                    ShopItem shopItem = ShopItemsList[i];
+
+                    // Update only relevant properties
+                    shopItem.isPurchased = model.isPurchased;
+                }
             }
+
+         
         }
     }
 
@@ -108,19 +115,6 @@ public class ShopManager : MonoBehaviour
 
         item.transform.GetChild(1).GetComponent<TMP_Text>().text = ShopItemsList[index].title.ToString();
         ShopItemsList[index].id = index;
-    }
-
-    void SetupEventTrigger(GameObject item, ShopItem shopItem)
-    {
-        //ShopItem localShopItem = shopItem;
-        //EventTrigger trigger = item.AddComponent<EventTrigger>();
-        //EventTrigger.Entry entry = new EventTrigger.Entry();
-        //entry.eventID = EventTriggerType.PointerClick;
-        //entry.callback.AddListener((data) =>
-        //{
-        //    OnPanelClick(localShopItem, item);
-        //});
-        //trigger.triggers.Add(entry);
     }
 
     void SetupLockImage(GameObject item, int index)
@@ -167,10 +161,10 @@ public class ShopManager : MonoBehaviour
 [System.Serializable]
 public class ShopDataWrapper
 {
-    public ShopItemModel[] shopItems;
+    public List<ShopItemModel> shopItems;
 
     public ShopDataWrapper(List<ShopItemModel> itemList)
     {
-        shopItems = itemList.ToArray();
+        shopItems = itemList;
     }
 }
