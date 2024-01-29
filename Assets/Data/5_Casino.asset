@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 4
   Image: {fileID: 21300000, guid: 8a2919e8d777d40c19b10142a4b70d4b, type: 3}
   price: 600
-  title: "\u041A\u0430\u0437\u0456\u043D\u043E"
+  title: "\u041A\u0430\u0437\u0438\u043D\u043E"
   isPurchased: 0
   descriptionText: "\u0421\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0443\u0434\u0430\u0447\u0443
     \u0443 \u043D\u0430\u0448\u0438\u0445 \"\u0435\u043A\u0441\u043A\u043B\u044E\u0437\u0438\u0432\u043D\u0438\u0445
