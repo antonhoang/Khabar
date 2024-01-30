@@ -67,6 +67,16 @@ public class SettingsScreen : MonoBehaviour
         supportUsScreen.SetActive(true);
     }
 
+    public void HelpUsBMC()
+    {
+        Application.OpenURL("https://www.buymeacoffee.com/5xcnzc9ln0/");
+    }
+
+    public void HelpUsBank()
+    {
+        Application.OpenURL("https://send.monobank.ua/jar/3eGqY9Zxn5");
+    }
+
     public void CloseSupportUs()
     {
         supportUsScreen.SetActive(false);

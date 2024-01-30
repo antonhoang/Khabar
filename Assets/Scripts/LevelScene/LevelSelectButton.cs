@@ -18,12 +18,7 @@ public class LevelSelectButton : MonoBehaviour
         selectedLevel = levelToLoad;
         PlayerPrefs.SetInt(CURRENT_LEVEL_KEY, levelToLoad);
         PlayerPrefs.Save();
-
-        string sceneName = "L" + levelToLoad;
-        //SceneManager.LoadScene(sceneName);
         SceneManager.LoadScene("UniversalLevel");
     }
-
-
 
 }
