@@ -56,7 +56,37 @@ public class SwipeUI : MonoBehaviour
     public void SetScrollBarValue(int index)
     {
         currentPage = index;
-        scrollBar.value = scrollPageValues[index];
+        float startValue = 0;
+        if (currentPage == 0 || currentPage == 1)
+        {
+            startValue = 0;
+        }
+        if (currentPage >= 2)
+        {
+            startValue = scrollPageValues[index - 1];
+        }
+        float targetValue = scrollPageValues[index];
+
+        StartCoroutine(AnimateScrollBar(startValue, targetValue));
+    }
+
+    public float animationDuration = 1f;
+    private IEnumerator AnimateScrollBar(float startValue, float targetValue)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < animationDuration)
+        {
+            // Use easeInOutQuad for easing effect
+            float easedTime = Mathf.SmoothStep(0f, 1f, elapsedTime / animationDuration);
+            scrollBar.value = Mathf.Lerp(startValue, targetValue, easedTime);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the scrollbar reaches the exact target value
+        scrollBar.value = targetValue;
     }
 
     private void Update()
