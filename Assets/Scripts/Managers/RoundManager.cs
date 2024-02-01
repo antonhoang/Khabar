@@ -39,13 +39,10 @@ public class RoundManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (uiMan.movesLeft == 0)
+        
+        if (uiMan.movesLeft == 0 && board.currentState == Board.BoardState.move)
         {
             uiMan.roundOverScreen.SetActive(true);
-        }
-        else
-        {
-            uiMan.roundOverScreen.SetActive(false);
         }
     }
 
@@ -70,10 +67,5 @@ public class RoundManager : MonoBehaviour
         //}
 
         //uiMan.timeText.text = roundTime.ToString("0.0") + "s";
-    }
-
-    private void WinCheck()
-    {
-        
     }
 }

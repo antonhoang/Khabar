@@ -77,15 +77,12 @@ public class SwipeUI : MonoBehaviour
 
         while (elapsedTime < animationDuration)
         {
-            // Use easeInOutQuad for easing effect
             float easedTime = Mathf.SmoothStep(0f, 1f, elapsedTime / animationDuration);
             scrollBar.value = Mathf.Lerp(startValue, targetValue, easedTime);
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
-        // Ensure the scrollbar reaches the exact target value
         scrollBar.value = targetValue;
     }
 

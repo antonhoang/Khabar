@@ -74,7 +74,7 @@ public class SettingsScreen : MonoBehaviour
 
     public void HelpUsBank()
     {
-        Application.OpenURL("https://send.monobank.ua/jar/3eGqY9Zxn5");
+        Application.OpenURL("https://send.monobank.ua/jar/8ZJHnKVu58");
     }
 
     public void CloseSupportUs()
