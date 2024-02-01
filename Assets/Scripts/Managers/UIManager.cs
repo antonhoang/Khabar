@@ -16,10 +16,12 @@ public class UIManager : MonoBehaviour
     public GameObject pauseScreen;
 
     private Board theBoard;
+    public ParticleSystem coinEffect;
 
 
     private void Awake()
     {
+        coinEffect.Stop();
         theBoard = FindObjectOfType<Board>();
     }
 

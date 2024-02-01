@@ -6,6 +6,7 @@ public class CanvasRoundOverBox : MonoBehaviour
 {
     public RectTransform box;
     public CanvasGroup background;
+    public ParticleSystem coinEffect;
     public float animationDuration = 0.3f;
 
     private void OnEnable()
@@ -15,6 +16,9 @@ public class CanvasRoundOverBox : MonoBehaviour
         box.localPosition = new Vector2(0, -Screen.height);
 
         // Start animations
+        
+        coinEffect.Stop();
+        coinEffect.Play();
         StartCoroutine(AnimateBackground());
         StartCoroutine(AnimateBox());
     }
