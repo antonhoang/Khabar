@@ -12,6 +12,8 @@ public class KhabarDetailPopup : MonoBehaviour
     private Action<int, bool> buyItemCallback;
     private Action<bool> backButtonCallback;
 
+    public TMP_Text notEnoughMoneyLabel;
+
     public GameObject supportUs;
     public GameObject supportUA;
 
@@ -91,10 +93,52 @@ public class KhabarDetailPopup : MonoBehaviour
             UpdateBuyButton();
         } else
         {
+            //ShowNotEnoughMoneyLabel();
+            
+            StartCoroutine(ShowNotEnoughMoneyLabel());
             ShakeCoinLabels();
         }
 
         // else not enough coins 
+    }
+
+    private System.Collections.IEnumerator ShowNotEnoughMoneyLabel()
+    {
+        // Display the label indicating not enough money
+        notEnoughMoneyLabel.gameObject.SetActive(true);
+
+        // Gradually fade in
+        float duration = 0.5f;
+        float startTime = Time.time;
+        while (Time.time < startTime + duration)
+        {
+            float alpha = Mathf.Lerp(0f, 1f, (Time.time - startTime) / duration);
+            SetLabelAlpha(alpha);
+            yield return null;
+        }
+
+        // Wait for 2.5 second
+        yield return new WaitForSeconds(2.5f);
+
+        // Gradually fade out
+        duration = 0.5f;
+        startTime = Time.time;
+        while (Time.time < startTime + duration)
+        {
+            float alpha = Mathf.Lerp(1f, 0f, (Time.time - startTime) / duration);
+            SetLabelAlpha(alpha);
+            yield return null;
+        }
+
+        // Hide the label after fading out
+        notEnoughMoneyLabel.gameObject.SetActive(false);
+    }
+
+    private void SetLabelAlpha(float alpha)
+    {
+        Color labelColor = notEnoughMoneyLabel.color;
+        labelColor.a = alpha;
+        notEnoughMoneyLabel.color = labelColor;
     }
 
     private void ShakeCoinLabels()
