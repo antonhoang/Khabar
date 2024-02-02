@@ -122,6 +122,7 @@
     <Compile Include="Assets/Scripts/LevelScene/SnapToItem.cs" />
     <Compile Include="Assets/BoardLayout.cs" />
     <Compile Include="Assets/Scripts/Managers/RoundManager.cs" />
+    <Compile Include="Assets/ShakeEffect.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
   <ItemGroup>

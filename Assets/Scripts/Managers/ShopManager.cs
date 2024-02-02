@@ -15,17 +15,17 @@ public class ShopManager : MonoBehaviour
 
     private GameObject itemTemplate;
 
-    private void Update()
-    {
-        currentCoins.text = CoinManager.GetCoins().ToString();
-    }
-
     void Start()
     {
         Debug.Log("Persistent Data Path: " + Application.persistentDataPath);
         LoadShopData();
         InitializeShop();
         SaveShopData();
+    }
+
+    private void Update()
+    {
+        currentCoins.text = CoinManager.GetCoins().ToString();
     }
 
     void SaveShopData()

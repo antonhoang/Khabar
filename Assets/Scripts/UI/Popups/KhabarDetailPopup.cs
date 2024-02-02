@@ -15,6 +15,27 @@ public class KhabarDetailPopup : MonoBehaviour
     public GameObject supportUs;
     public GameObject supportUA;
 
+    public List<GameObject> coinLabels;
+
+    private List<ShakeEffect> shakeEffects = new List<ShakeEffect>();
+
+    private void Awake()
+    {
+        foreach (GameObject coinLabel in coinLabels)
+        {
+            ShakeEffect shakeEffect = coinLabel.GetComponent<ShakeEffect>();
+
+            if (shakeEffect != null)
+            {
+                shakeEffects.Add(shakeEffect);
+            }
+            else
+            {
+                Debug.LogError($"ShakeEffect script not found on {coinLabel.name} GameObject.");
+            }
+        }
+    }
+
     public void ShowDetails(
         ShopItem shopItem,
         Action<int, bool> callback,
@@ -68,9 +89,23 @@ public class KhabarDetailPopup : MonoBehaviour
             buyItemCallback(id, isBought);
 
             UpdateBuyButton();
+        } else
+        {
+            ShakeCoinLabels();
         }
 
         // else not enough coins 
+    }
+
+    private void ShakeCoinLabels()
+    {
+        foreach (ShakeEffect shakeEffect in shakeEffects)
+        {
+            if (shakeEffect != null)
+            {
+                shakeEffect.Shake();
+            }
+        }
     }
 
     private void UpdateBuyButton()
