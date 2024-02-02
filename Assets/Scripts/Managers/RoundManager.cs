@@ -30,20 +30,12 @@ public class RoundManager : MonoBehaviour
         uiMan.scoreText.text = displayScore.ToString("0");
     }
 
-    public void ResultingScore()
-    {
-        if (uiMan.movesLeft == 0)
-        {
-            CoinManager.AddCoins(currentScore);
-        }
-        
-    }
-
     private void LateUpdate()
     {
         
         if (uiMan.movesLeft == 0 && board.currentState == Board.BoardState.move)
         {
+            CoinManager.AddCoins(currentScore);
             uiMan.roundOverScreen.SetActive(true);
         }
     }
