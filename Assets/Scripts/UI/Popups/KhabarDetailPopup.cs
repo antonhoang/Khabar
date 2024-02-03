@@ -12,7 +12,7 @@ public class KhabarDetailPopup : MonoBehaviour
     private Action<int, bool> buyItemCallback;
     private Action<bool> backButtonCallback;
 
-    public TMP_Text notEnoughMoneyLabel;
+    public Image notEnoughMoneyView;
 
     public GameObject supportUs;
     public GameObject supportUA;
@@ -57,6 +57,7 @@ public class KhabarDetailPopup : MonoBehaviour
         
 
         gameObject.SetActive(true);
+        notEnoughMoneyView.gameObject.SetActive(false);
     }
 
     void SetImageTarget(ShopItem shopItem)
@@ -95,17 +96,17 @@ public class KhabarDetailPopup : MonoBehaviour
         {
             //ShowNotEnoughMoneyLabel();
             
-            StartCoroutine(ShowNotEnoughMoneyLabel());
+            StartCoroutine(ShowNotEnoughMoneyView());
             ShakeCoinLabels();
         }
 
         // else not enough coins 
     }
 
-    private System.Collections.IEnumerator ShowNotEnoughMoneyLabel()
+    private System.Collections.IEnumerator ShowNotEnoughMoneyView()
     {
         // Display the label indicating not enough money
-        notEnoughMoneyLabel.gameObject.SetActive(true);
+        notEnoughMoneyView.gameObject.SetActive(true);
 
         // Gradually fade in
         float duration = 0.5f;
@@ -131,14 +132,19 @@ public class KhabarDetailPopup : MonoBehaviour
         }
 
         // Hide the label after fading out
-        notEnoughMoneyLabel.gameObject.SetActive(false);
+        
+        notEnoughMoneyView.gameObject.SetActive(false);
     }
 
     private void SetLabelAlpha(float alpha)
     {
-        Color labelColor = notEnoughMoneyLabel.color;
+        TMP_Text label = notEnoughMoneyView.GetComponentInChildren<TMP_Text>();
+        Color imageColor = notEnoughMoneyView.color;
+        Color labelColor = label.color;
+        imageColor.a = alpha;
         labelColor.a = alpha;
-        notEnoughMoneyLabel.color = labelColor;
+        notEnoughMoneyView.color = imageColor;
+        label.color = labelColor;
     }
 
     private void ShakeCoinLabels()
