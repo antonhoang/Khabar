@@ -14,6 +14,8 @@ public class KhabarDetailPopup : MonoBehaviour
 
     public Image notEnoughMoneyView;
 
+    public ParticleSystem BuyCoinEffect;
+
     public GameObject supportUs;
     public GameObject supportUA;
 
@@ -23,6 +25,8 @@ public class KhabarDetailPopup : MonoBehaviour
 
     private void Awake()
     {
+        var mainModule = BuyCoinEffect.main;
+        mainModule.playOnAwake = false;
         foreach (GameObject coinLabel in coinLabels)
         {
             ShakeEffect shakeEffect = coinLabel.GetComponent<ShakeEffect>();
@@ -36,6 +40,11 @@ public class KhabarDetailPopup : MonoBehaviour
                 Debug.LogError($"ShakeEffect script not found on {coinLabel.name} GameObject.");
             }
         }
+    }
+
+    private void Start()
+    {
+        BuyCoinEffect.Stop();
     }
 
     public void ShowDetails(
@@ -54,8 +63,8 @@ public class KhabarDetailPopup : MonoBehaviour
         SetTextDescription(shopItem);
         SetTextPrice(shopItem);
         UpdateBuyButton();
-        
 
+        
         gameObject.SetActive(true);
         notEnoughMoneyView.gameObject.SetActive(false);
     }
@@ -74,11 +83,55 @@ public class KhabarDetailPopup : MonoBehaviour
 
     void SetTextPrice(ShopItem shopItem)
     {
-        
-        TMP_Text targetText = transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponentInChildren<TMP_Text>();
+        GameObject coinLabel = GetLastItem(coinLabels);
 
-        PriceFormatter priceFormatter = new PriceFormatter();
-        targetText.text = priceFormatter.FormatPrice(shopItem.price); 
+        if (!shopItem.isPurchased)
+        {
+            coinLabel.gameObject.SetActive(true);
+
+
+            Image im1 = coinLabel.transform.GetChild(0).GetComponent<Image>();
+            Image im2 = coinLabel.transform.GetChild(1).GetComponent<Image>();
+
+            TMP_Text t1 = im1.transform.GetChild(0).GetComponent<TMP_Text>();
+            Color imageColor1 = im1.color;
+            Color imageColor2 = im2.color;
+
+            Color textColor1 = t1.color;
+
+            imageColor1.a = 1;
+            imageColor2.a = 1;
+
+            textColor1.a = 1;
+
+            im1.color = imageColor1;
+            im2.color = imageColor2;
+            t1.color = textColor1;
+
+            PriceFormatter priceFormatter = new PriceFormatter();
+            t1.text = priceFormatter.FormatPrice(shopItem.price);
+        }
+        else
+        {
+            Image im1 = coinLabel.transform.GetChild(0).GetComponent<Image>();
+            Image im2 = coinLabel.transform.GetChild(1).GetComponent<Image>();
+
+            TMP_Text t1 = im1.transform.GetChild(0).GetComponent<TMP_Text>();
+            Color imageColor1 = im1.color;
+            Color imageColor2 = im2.color;
+
+            Color textColor1 = t1.color;
+
+            imageColor1.a = 0;
+            imageColor2.a = 0;
+
+            textColor1.a = 0;
+
+            im1.color = imageColor1;
+            im2.color = imageColor2;
+            t1.color = textColor1;
+            coinLabel.gameObject.SetActive(false);
+        }
     }
 
     public void BuyItem()
@@ -90,17 +143,64 @@ public class KhabarDetailPopup : MonoBehaviour
             CoinManager.RemoveCoins(price);
             isBought = true;
             buyItemCallback(id, isBought);
-
+            BuyCoinEffect.Stop();
+            BuyCoinEffect.Play();
             UpdateBuyButton();
+            StartCoroutine(FadeCoinLabel());
+            
         } else
         {
-            //ShowNotEnoughMoneyLabel();
-            
             StartCoroutine(ShowNotEnoughMoneyView());
             ShakeCoinLabels();
         }
+    } 
 
-        // else not enough coins 
+    private IEnumerator FadeCoinLabel()
+    {
+        GameObject coinLabel = GetLastItem(coinLabels);
+        float duration = 0.5f;
+        float startTime = Time.time;
+        while (Time.time < startTime + duration)
+        {
+            float alpha = Mathf.Lerp(1f, 0f, (Time.time - startTime) / duration);
+            
+
+            Image im1 = coinLabel.transform.GetChild(0).GetComponent<Image>();
+            Image im2 = coinLabel.transform.GetChild(1).GetComponent<Image>();
+
+            TMP_Text t1 = im1.transform.GetChild(0).GetComponent<TMP_Text>();
+            Color imageColor1 = im1.color;
+            Color imageColor2 = im2.color;
+
+            Color textColor1 = t1.color;
+            
+            imageColor1.a = alpha;
+            imageColor2.a = alpha;
+
+            textColor1.a = alpha;
+
+            im1.color = imageColor1;
+            im2.color = imageColor2;
+            t1.color = textColor1;
+            
+
+            yield return null;
+        }
+        coinLabel.gameObject.SetActive(false);
+    }
+
+    private T GetLastItem<T>(List<T> list)
+    {
+        if (list.Count > 0)
+        {
+            return list[list.Count - 1];
+        }
+        else
+        {
+            // Handle the case where the list is empty
+            Debug.LogError("List is empty");
+            return default(T); // Returns the default value for type T (null for reference types, 0 for value types)
+        }
     }
 
     private System.Collections.IEnumerator ShowNotEnoughMoneyView()
