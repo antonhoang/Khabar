@@ -104,6 +104,25 @@ public class Board : MonoBehaviour
         gem.SetupGem(pos, this);
     }
 
+    private IEnumerator SpawnGemWithAnimation(Vector2Int pos, Gem gemToSpawn)
+    {
+        if (Random.Range(0f, 100f) < bombChance)
+        {
+            gemToSpawn = bomb;
+        }
+
+        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y + height, 0f), Quaternion.identity);
+        gem.transform.parent = transform;
+        gem.name = "Gem - " + pos.x + ", " + pos.y;
+        allGems[pos.x, pos.y] = gem;
+
+        gem.SetupGem(pos, this);
+
+        yield return new WaitForSeconds(0.02f); // Adjust the interval as needed
+
+        matchFind.FindAllMatches();
+    }
+
     bool MatchesAt(Vector2Int posToCheck, Gem gemToCheck)
     {
         if(posToCheck.x > 1)
@@ -179,10 +198,11 @@ public class Board : MonoBehaviour
 
     private IEnumerator FillBoardCo()
     {
-        yield return new WaitForSeconds(.2f);
-        RefillBoard();
+        yield return new WaitForSeconds(.1f);
+        yield return StartCoroutine(RefillBoardWithAnimationCo());
+        
 
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.1f);
 
         matchFind.FindAllMatches();
 
@@ -190,18 +210,18 @@ public class Board : MonoBehaviour
         {
             bonusMulti++;
 
-            yield return new WaitForSeconds(.2f);
+            yield return new WaitForSeconds(.1f);
             DestroyMatches();
         } else
         {
-            yield return new WaitForSeconds(.2f);
+            yield return new WaitForSeconds(.1f);
             currentState = BoardState.move;
             bonusMulti = 0f;
             ResultingScore();
         }
     }
 
-    private void RefillBoard()
+    private IEnumerator RefillBoardWithAnimationCo()
     {
         for (int x = 0; x < width; x++)
         {
@@ -209,8 +229,9 @@ public class Board : MonoBehaviour
             {
                 if (allGems[x,y] == null)
                 {
-                     int gemToUse = Random.Range(0, gems.Length);
-                     SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+                    int gemToUse = Random.Range(0, gems.Length);
+                    yield return StartCoroutine(SpawnGemWithAnimation(new Vector2Int(x, y), gems[gemToUse]));
+                    //SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
                 }
             }
         }
