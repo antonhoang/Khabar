@@ -96,7 +96,7 @@ public class Board : MonoBehaviour
             gemToSpawn = bomb;
         }
 
-        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y + height, 0f), Quaternion.identity);
+        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y, 0f), Quaternion.identity);
         gem.transform.parent = transform;
         gem.name = "Gem - " + pos.x + ", " + pos.y;
         allGems[pos.x, pos.y] = gem;
@@ -104,6 +104,7 @@ public class Board : MonoBehaviour
         gem.SetupGem(pos, this);
     }
 
+    // This coroutine spawns a gem with drop animation
     private IEnumerator SpawnGemWithAnimation(Vector2Int pos, Gem gemToSpawn)
     {
         if (Random.Range(0f, 100f) < bombChance)
@@ -111,17 +112,64 @@ public class Board : MonoBehaviour
             gemToSpawn = bomb;
         }
 
-        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y + height, 0f), Quaternion.identity);
+        // Instantiate the gem
+        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, height, 0f), Quaternion.identity);
         gem.transform.parent = transform;
         gem.name = "Gem - " + pos.x + ", " + pos.y;
         allGems[pos.x, pos.y] = gem;
 
+        // Setup the gem
         gem.SetupGem(pos, this);
 
-        yield return new WaitForSeconds(0.02f); // Adjust the interval as needed
+        //matchFind.FindAllMatches();
 
+        Vector3 startPosition = gem.transform.position;
+        Vector3 endPosition = new Vector3(pos.x, pos.y, 0f); // Destination position
+
+        float duration = 0.3f; // Duration of the drop animation
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            t = Mathf.SmoothStep(0f, 1f, t);
+            //t = 1f - Mathf.Pow(1f - t, 3f); // Ease-out function
+            gem.transform.position = Vector3.Lerp(startPosition, endPosition, t);
+            yield return null;
+        }
+
+        gem.transform.position = endPosition; // Ensure it reaches the final position exactly
+
+        // Start jump animation
+        if(gem != null)
+        {
+            StartCoroutine(JumpAnimation(gem));
+        }
+    }
+
+    // This coroutine performs the jump animation
+    private IEnumerator JumpAnimation(Gem gem)
+    {
+        // Jump animation
+        Vector3 originalPosition = gem.transform.position;
+        Vector3 jumpOffset = new Vector3(0, 0.03f, 0); // Adjust the jump amount as needed
+        float jumpDuration = 0.1f; // Duration of the jump animation
+        float jumpElapsed = 0f;
+
+        while (jumpElapsed < jumpDuration)
+        {
+            jumpElapsed += Time.deltaTime;
+            float t = jumpElapsed / jumpDuration;
+            gem.transform.position = Vector3.Lerp(originalPosition, originalPosition + jumpOffset, Mathf.Sin(t * Mathf.PI));
+            yield return null;
+        }
+
+        // Ensure it returns to the original position exactly
+        gem.transform.position = originalPosition;
         matchFind.FindAllMatches();
     }
+
 
     bool MatchesAt(Vector2Int posToCheck, Gem gemToCheck)
     {
@@ -200,13 +248,13 @@ public class Board : MonoBehaviour
     {
         yield return new WaitForSeconds(.1f);
         yield return StartCoroutine(RefillBoardWithAnimationCo());
-        
+
 
         yield return new WaitForSeconds(.1f);
 
         matchFind.FindAllMatches();
 
-        if(matchFind.currentMatches.Count > 0)
+        if (matchFind.currentMatches.Count > 0)
         {
             bonusMulti++;
 
@@ -223,20 +271,47 @@ public class Board : MonoBehaviour
 
     private IEnumerator RefillBoardWithAnimationCo()
     {
+        // List to store coroutine references for destroyed columns
+        List<Coroutine> destroyedCoroutines = new List<Coroutine>();
+
+        // Start a coroutine for each column
         for (int x = 0; x < width; x++)
         {
-            for (int y = 0; y < height; y++)
+            yield return new WaitForSeconds(0.01f);
+            destroyedCoroutines.Add(StartCoroutine(SpawnGemsInColumnWithAnimation(x)));
+        }
+
+        // Wait for all coroutines for destroyed columns to finish first
+        foreach (Coroutine coroutine in destroyedCoroutines)
+        {
+            yield return coroutine;
+        }
+
+        
+
+        CheckMisplacedGems();
+    }
+
+    private IEnumerator SpawnGemsInColumnWithAnimation(int column)
+    {
+        List<Coroutine> spawnCoroutines = new List<Coroutine>();
+
+        for (int y = 0; y < height; y++)
+        {
+            if (allGems[column, y] == null)
             {
-                if (allGems[x,y] == null)
-                {
-                    int gemToUse = Random.Range(0, gems.Length);
-                    yield return StartCoroutine(SpawnGemWithAnimation(new Vector2Int(x, y), gems[gemToUse]));
-                    //SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
-                }
+                int gemToUse = Random.Range(0, gems.Length);
+                yield return new WaitForSeconds(0.1f);
+                Coroutine coroutine = StartCoroutine(SpawnGemWithAnimation(new Vector2Int(column, y), gems[gemToUse]));
+                spawnCoroutines.Add(coroutine);
             }
         }
 
-        CheckMisplacedGems();
+        // Wait for all coroutines to finish before continuing
+        foreach (Coroutine coroutine in spawnCoroutines)
+        {
+            yield return coroutine;
+        }
     }
 
     private void CheckMisplacedGems()
