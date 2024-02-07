@@ -96,7 +96,7 @@ public class Board : MonoBehaviour
             gemToSpawn = bomb;
         }
 
-        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y + height, 0f), Quaternion.identity);
+        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, height, 0f), Quaternion.identity);
         gem.transform.parent = transform;
         gem.name = "Gem - " + pos.x + ", " + pos.y;
         allGems[pos.x, pos.y] = gem;
@@ -111,7 +111,7 @@ public class Board : MonoBehaviour
             gemToSpawn = bomb;
         }
 
-        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y + height, 0f), Quaternion.identity);
+        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, height - 0.5f, 0f), Quaternion.identity);
         gem.transform.parent = transform;
         gem.name = "Gem - " + pos.x + ", " + pos.y;
         allGems[pos.x, pos.y] = gem;
@@ -223,20 +223,45 @@ public class Board : MonoBehaviour
 
     private IEnumerator RefillBoardWithAnimationCo()
     {
+        List<Coroutine> destroyedCoroutines = new List<Coroutine>();
+
         for (int x = 0; x < width; x++)
         {
-            for (int y = 0; y < height; y++)
-            {
-                if (allGems[x,y] == null)
-                {
-                    int gemToUse = Random.Range(0, gems.Length);
-                    yield return StartCoroutine(SpawnGemWithAnimation(new Vector2Int(x, y), gems[gemToUse]));
-                    //SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
-                }
-            }
+            
+            yield return new WaitForSeconds(0.01f);
+            destroyedCoroutines.Add(StartCoroutine(SpawnGemsInColumnWithAnimation(x)));
+
+            //yield return StartCoroutine(SpawnGemWithAnimation(new Vector2Int(x, y), gems[gemToUse]));
+            //SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+
+
+        }
+
+        foreach (Coroutine coroutine in destroyedCoroutines)
+        {
+            yield return coroutine;
         }
 
         CheckMisplacedGems();
+    }
+
+    private IEnumerator SpawnGemsInColumnWithAnimation(int column)
+    {
+        List<Coroutine> spawnCoroutines = new List<Coroutine>();
+        for (int y = 0; y < height; y++)
+        {
+            if (allGems[column, y] == null)
+            {
+                int gemToUse = Random.Range(0, gems.Length);
+                yield return new WaitForSeconds(0.15f);
+                Coroutine coroutine = StartCoroutine(SpawnGemWithAnimation(new Vector2Int(column, y), gems[gemToUse]));
+                spawnCoroutines.Add(coroutine);
+            }
+        }
+        foreach (Coroutine coroutine in spawnCoroutines)
+        {
+            yield return coroutine;
+        }
     }
 
     private void CheckMisplacedGems()
