@@ -11023,7 +11023,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2054798592750413300, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
       propertyPath: m_text
-      value: "\u041C\u0430\u0440\u043D\u043E-\u043A\u0440\u0430\u0434\u0438\u0442\u0438"
+      value: "\u041C\u0430\u0440\u043D\u043E \u043A\u0440\u0430\u0434\u0438\u0442\u0438 "
       objectReference: {fileID: 0}
     - target: {fileID: 2054798592750413300, guid: dd8552d39dd644c74870751b1b98d6c5, type: 3}
       propertyPath: m_fontSize
