@@ -228,7 +228,7 @@ public class Board : MonoBehaviour
 
     private IEnumerator DecreaseRowCo()
     {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(0.18f);
 
         DecreaseRow();
         
@@ -237,7 +237,6 @@ public class Board : MonoBehaviour
 
     private IEnumerator FillBoardCo()
     {
-        yield return new WaitForSeconds(.1f);
         yield return StartCoroutine(RefillBoardWithAnimationCo());
     }
 
@@ -255,7 +254,7 @@ public class Board : MonoBehaviour
             // Start a coroutine for each column
             for (int x = 0; x < width; x++)
             {
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.008f);
                 destroyedCoroutines.Add(StartCoroutine(SpawnGemsInColumnWithAnimation(x)));
             }
 
@@ -263,6 +262,7 @@ public class Board : MonoBehaviour
             foreach (Coroutine coroutine in destroyedCoroutines)
             {
                 yield return coroutine;
+
             }
 
             matchFind.FindAllMatches();
@@ -282,7 +282,7 @@ public class Board : MonoBehaviour
                 }
 
                 // Adjust gem positions
-                yield return new WaitForSeconds(0.15f);
+                yield return new WaitForSeconds(0.18f);
                 DecreaseRow();
             } else
             {
