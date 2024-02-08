@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3be07786a2274fc9afd8aa05e3fed0b, type: 3}
   m_Name: 9_PersonalDoctor
   m_EditorClassIdentifier: 
-  id: 0
+  id: 8
   Image: {fileID: 21300000, guid: 5a0da4370a3fa475ab87937f7acf0226, type: 3}
   price: 1000
   title: "\u041D\u0430\u0439\u043D\u044F\u0442\u0438 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u043E\u0433\u043E

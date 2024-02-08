@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3be07786a2274fc9afd8aa05e3fed0b, type: 3}
   m_Name: 16_Polo
   m_EditorClassIdentifier: 
-  id: 0
+  id: 15
   Image: {fileID: 21300000, guid: ccc68a48874b140fab5741aa84cc907c, type: 3}
   price: 12000
   title: "\u0413\u0440\u0430 \u0432 \u041F\u043E\u043B\u043E"

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3be07786a2274fc9afd8aa05e3fed0b, type: 3}
   m_Name: 11_Yacht
   m_EditorClassIdentifier: 
-  id: 0
+  id: 10
   Image: {fileID: 21300000, guid: e16582da5cc6e49fbba6ccc8a797db6f, type: 3}
   price: 500000
   title: "\u041F\u0440\u0438\u0434\u0431\u0430\u0442\u0438 \u044F\u0445\u0442\u0443"
