@@ -56,7 +56,7 @@ public class Board : MonoBehaviour
     {
         if (boardLayout != null)
         {
-            layoutStore = boardLayout.GetLayout();
+            layoutStore = boardLayout.GetLayout2();
         }
         for (int x = 0; x < width; x++)
         {
