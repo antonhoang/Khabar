@@ -147,7 +147,6 @@ public class KhabarDetailPopup : MonoBehaviour
             BuyCoinEffect.Play();
             UpdateBuyButton();
             StartCoroutine(FadeCoinLabel());
-            
         } else
         {
             StartCoroutine(ShowNotEnoughMoneyView());
@@ -157,6 +156,7 @@ public class KhabarDetailPopup : MonoBehaviour
 
     private IEnumerator FadeCoinLabel()
     {
+        yield return new WaitForSeconds(3f);
         GameObject coinLabel = GetLastItem(coinLabels);
         float duration = 0.5f;
         float startTime = Time.time;
