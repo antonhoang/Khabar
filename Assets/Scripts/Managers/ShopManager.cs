@@ -17,10 +17,21 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
+        //ResetData();
         Debug.Log("Persistent Data Path: " + Application.persistentDataPath);
         LoadShopData();
         InitializeShop();
         SaveShopData();
+    }
+
+    private void ResetData()
+    {
+        foreach (ShopItem shopItem in ShopItemsList)
+        {
+            // Reset properties as needed
+            shopItem.isPurchased = false;
+        }
+        SaveShopData(); // Save the reset data
     }
 
     private void Update()
