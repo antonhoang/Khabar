@@ -113,7 +113,6 @@ public class Board : MonoBehaviour
         }
 
         // Instantiate the gem
-        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, height, 0f), Quaternion.identity);
         Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, height - 0.5f, 0f), Quaternion.identity);
         gem.transform.parent = transform;
         gem.name = "Gem - " + pos.x + ", " + pos.y;
@@ -338,25 +337,6 @@ public class Board : MonoBehaviour
                 }
             }
             nullCounter = 0;
-        }
-    }
-
-    private IEnumerator SpawnGemsInColumnWithAnimation(int column)
-    {
-        List<Coroutine> spawnCoroutines = new List<Coroutine>();
-        for (int y = 0; y < height; y++)
-        {
-            if (allGems[column, y] == null)
-            {
-                int gemToUse = Random.Range(0, gems.Length);
-                yield return new WaitForSeconds(0.15f);
-                Coroutine coroutine = StartCoroutine(SpawnGemWithAnimation(new Vector2Int(column, y), gems[gemToUse]));
-                spawnCoroutines.Add(coroutine);
-            }
-        }
-        foreach (Coroutine coroutine in spawnCoroutines)
-        {
-            yield return coroutine;
         }
     }
 
