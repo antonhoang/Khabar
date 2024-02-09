@@ -69,7 +69,7 @@ public class Board : MonoBehaviour
 
                 if (layoutStore[x, y] != null)
                 {
-                    SpawnGem(new Vector2Int(x, y), layoutStore[x, y]);
+                    SpawnGemWithoutBombs(new Vector2Int(x, y), layoutStore[x, y]);
                 }
                 else
                 {
@@ -96,6 +96,16 @@ public class Board : MonoBehaviour
             gemToSpawn = bomb;
         }
 
+        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y, 0f), Quaternion.identity);
+        gem.transform.parent = transform;
+        gem.name = "Gem - " + pos.x + ", " + pos.y;
+        allGems[pos.x, pos.y] = gem;
+
+        gem.SetupGem(pos, this);
+    }
+
+    private void SpawnGemWithoutBombs(Vector2Int pos, Gem gemToSpawn)
+    {
         Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y, 0f), Quaternion.identity);
         gem.transform.parent = transform;
         gem.name = "Gem - " + pos.x + ", " + pos.y;
