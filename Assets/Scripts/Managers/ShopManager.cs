@@ -17,11 +17,26 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
-        //ResetData();
+        Debug.Log("This is a production build.");
+
+        // Add production-specific code here
         Debug.Log("Persistent Data Path: " + Application.persistentDataPath);
         LoadShopData();
         InitializeShop();
         SaveShopData();
+//#if TESTFLIGHT
+//        Debug.Log("This is a TestFlight build.");
+//        ResetData();
+//        SaveShopData();
+//#else
+//        Debug.Log("This is a production build.");
+
+//            // Add production-specific code here
+//        Debug.Log("Persistent Data Path: " + Application.persistentDataPath);
+//        LoadShopData();
+//        InitializeShop();
+//        SaveShopData();
+//    #endif
     }
 
     private void ResetData()

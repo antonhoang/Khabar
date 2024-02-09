@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 18
   Image: {fileID: 21300000, guid: ab10e41ffdbe44b38a110e0caee876da, type: 3}
-  price: 100000
+  price: 320000
   title: "\u041F\u0440\u0438\u0434\u0431\u0430\u0442\u0438 \u0411\u0435\u043D\u0442\u043B\u0456"
   isPurchased: 0
   descriptionText: "\u041D\u0430\u0441\u043E\u043B\u043E\u0434\u0436\u0443\u0439\u0442\u0435\u0441\u044F
