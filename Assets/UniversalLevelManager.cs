@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UniversalLevelManager : MonoBehaviour
 {
@@ -18,5 +19,13 @@ public class UniversalLevelManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public string mainMenu = "StartScene";
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(mainMenu);
     }
 }

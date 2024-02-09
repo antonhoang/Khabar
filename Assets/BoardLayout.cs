@@ -6,27 +6,97 @@ public class BoardLayout : MonoBehaviour
 {
     public LayoutRow[] allRows;
 
-    public Gem[,] GetLayout()
-    {
-        Gem[,] theLayout = new Gem[allRows[0].gemsInRow.Length, allRows.Length];
+    // Matrix representations of gem layouts
 
-        for (int y = 0; y < allRows.Length; y++)
+    private int[][,] allMatrices = new int[][,]
+{
+    new int[,] // Matrix 1
+    {
+        {0, 0, 0, 1, 1, 0, 0, 0},
+        {0, 0, 0, 1, 1, 0, 0, 0},
+        {0, 0, 0, 1, 1, 0, 0, 0},
+        {0, 0, 0, 1, 1, 0, 0, 0},
+        {0, 0, 0, 1, 1, 0, 0, 0},
+        {0, 0, 0, 1, 1, 0, 0, 0},
+        {0, 0, 0, 1, 1, 0, 0, 0},
+        {0, 0, 0, 1, 1, 0, 0, 0}
+    },
+    new int[,] // Matrix 2
+    {
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0}
+    },
+    new int[,] // Matrix 3
+    {
+        {1, 1, 1, 0, 0, 0, 0, 0},
+        {1, 1, 1, 0, 0, 0, 0, 0},
+        {1, 1, 1, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 1, 1, 1},
+        {0, 0, 0, 0, 0, 1, 1, 1},
+        {0, 0, 0, 0, 0, 1, 1, 1}
+    },
+
+    new int[,] // Matrix 4
+    {
+        {0, 1, 0, 0, 0, 0, 1, 0},
+        {0, 1, 0, 0, 0, 0, 1, 0},
+        {0, 1, 0, 0, 0, 0, 1, 0},
+        {0, 1, 0, 0, 0, 0, 1, 0},
+        {0, 1, 0, 0, 0, 0, 1, 0},
+        {0, 1, 0, 0, 0, 0, 1, 0},
+        {0, 1, 0, 0, 0, 0, 1, 0},
+        {0, 1, 0, 0, 0, 0, 1, 0}
+    },
+
+    new int[,] // Matrix 5
+    {
+        {0, 0, 0, 0, 0, 0, 1, 1},
+        {0, 0, 0, 0, 0, 0, 1, 1},
+        {0, 0, 0, 0, 0, 0, 1, 1},
+        {0, 0, 0, 0, 0, 0, 1, 1},
+        {0, 0, 0, 0, 0, 0, 1, 1},
+        {0, 0, 0, 0, 0, 0, 1, 1},
+        {0, 0, 0, 0, 0, 0, 1, 1},
+        {0, 0, 0, 0, 0, 0, 1, 1}
+    }
+};
+
+    public Gem gemPrefab;
+
+    Gem[,] ConvertToGems(int[,] matrix)
+    {
+        int numRows = matrix.GetLength(0);
+        int numCols = matrix.GetLength(1);
+        Gem[,] gems = new Gem[numRows, numCols];
+
+        for (int y = 0; y < numRows; y++)
         {
-            for (int x = 0; x < allRows[y].gemsInRow.Length; x++)
+            for (int x = 0; x < numCols; x++)
             {
-                if (x < theLayout.GetLength(0))
+                if (matrix[y, x] == 1 && gemPrefab != null)
                 {
-                    if (allRows[y].gemsInRow[x] != null)
-                    {
-                        theLayout[x, allRows.Length - 1 - y] = allRows[y].gemsInRow[x];
-                    }
+                    gems[y, x] = gemPrefab;
                 }
             }
         }
 
+        return gems;
+    }
 
 
-        return theLayout;
+    public Gem[,] GetLayout()
+    {
+        int level = LevelSelectButton.selectedLevel;
+        int[,] matrix = allMatrices[level];
+        return ConvertToGems(matrix);
     }
 }
 
