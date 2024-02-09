@@ -2614,6 +2614,7 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+  gemPrefab: {fileID: 6402150241507574114, guid: a266fefb6731545d699bcc99f1976a41, type: 3}
 --- !u!1 &927011505
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,6 +4776,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4f83532d8569240e1956c140580da897, type: 3}
   - {fileID: 21300000, guid: 5fd0055d5ba8d487a86dd2e0e5ebc14d, type: 3}
   background: {fileID: 964170530}
+  mainMenu: StartScene
 --- !u!1 &1857273286
 GameObject:
   m_ObjectHideFlags: 0
