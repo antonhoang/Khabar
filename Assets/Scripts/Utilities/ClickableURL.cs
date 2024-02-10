@@ -26,7 +26,7 @@ public class ClickableURL : MonoBehaviour, IPointerClickHandler
             myText += "Підпис здесь ";
             myText += "<link=https://www.behance.net/alinamokliak>Behance</link>\n";
             myText += "і підпис здесь ";
-            myText += "<link=https://github.com/antonhoang?tab=repositories>GitHub</link>\n";
+            myText += "<link=https://t.me/khabar3puzzle>Telegram</link>\n";
         }
 
         if (textCase == TextCase.supportUs)
