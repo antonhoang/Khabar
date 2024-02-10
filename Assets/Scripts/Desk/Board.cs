@@ -19,6 +19,7 @@ public class Board : MonoBehaviour
     public Gem[] gems;
     public Gem[,] allGems;
     public Gem bomb;
+    public Gem judge;
     public float gemSpeed;
     public float bombChance = 2f;
 
@@ -102,6 +103,17 @@ public class Board : MonoBehaviour
         allGems[pos.x, pos.y] = gem;
 
         gem.SetupGem(pos, this);
+    }
+
+    public Gem SpawnJudgeGem(Vector2Int pos)
+    {
+        Gem gem = Instantiate(judge, new Vector3(pos.x, pos.y, 0f), Quaternion.identity);
+        gem.transform.parent = transform;
+        gem.name = "Gem - " + pos.x + ", " + pos.y;
+        allGems[pos.x, pos.y] = gem;
+
+        gem.SetupGem(pos, this);
+        return gem;
     }
 
     private void SpawnGemWithoutBombs(Vector2Int pos, Gem gemToSpawn)
@@ -211,6 +223,33 @@ public class Board : MonoBehaviour
         }
         return false;
     }
+
+    public void DestroyGemsByRowAndColumn(Vector2Int pos)
+    {
+        // Destroy gems in the same row
+        for (int x = 0; x < width; x++)
+        {
+            if (allGems[x, pos.y] != null)
+            {
+                Instantiate(allGems[x, pos.y].destroyEffect, new Vector2(x, pos.y), Quaternion.identity);
+                Destroy(allGems[x, pos.y].gameObject);
+                allGems[x, pos.y] = null;
+            }
+        }
+
+        // Destroy gems in the same column
+        for (int y = 0; y < height; y++)
+        {
+            if (allGems[pos.x, y] != null)
+            {
+                Instantiate(allGems[pos.x, y].destroyEffect, new Vector2(pos.x, y), Quaternion.identity);
+                Destroy(allGems[pos.x, y].gameObject);
+                allGems[pos.x, y] = null;
+            }
+        }
+        StartCoroutine(DecreaseRowCo());
+    }
+
 
     private void DestroyMatchedGemAt(Vector2Int pos) {
         if (allGems[pos.x, pos.y] != null)
@@ -350,7 +389,7 @@ public class Board : MonoBehaviour
         }
     }
 
-    private void CheckMisplacedGems()
+    public void CheckMisplacedGems()
     {
         List<Gem> foundGems = new List<Gem>();
         foundGems.AddRange(FindObjectsOfType<Gem>());

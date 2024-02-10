@@ -18,7 +18,7 @@ public class Gem : MonoBehaviour
 
     private Gem otherGem;
 
-    public enum GemType { blue, green, red, yellow, purple, bomb, stone }
+    public enum GemType { blue, green, red, yellow, purple, bomb, stone, judge }
     public GemType type;
 
     public bool isMatched;
@@ -63,6 +63,12 @@ public class Gem : MonoBehaviour
                 finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CalculateAngle();
             }
+            if (board.allGems[posIndex.x, posIndex.y] == this && type == GemType.judge)
+            {
+                Vector2Int pos = new Vector2Int(posIndex.x, posIndex.y);
+                board.DestroyGemsByRowAndColumn(pos);
+                Debug.Log("GetMouseButtonUp");
+            }
             
         } 
     }
@@ -80,7 +86,7 @@ public class Gem : MonoBehaviour
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePressed = true;
         }
-        
+        Debug.Log("OnMouseDown");
     }
 
     private void CalculateAngle()
@@ -183,7 +189,15 @@ public class Gem : MonoBehaviour
                         uiMan.UpdateMoves();
                     }
                 }
+
+                if (board.matchFind.currentMatches.Count >= 4)
+                {
+                    Vector2Int pos = new Vector2Int(posIndex.x, posIndex.y);
+                    board.allGems[posIndex.x, posIndex.y] = board.SpawnJudgeGem(pos);
+                }
+                
                 board.DestroyMatches();
+                board.CheckMisplacedGems();
             }
         }
     }
