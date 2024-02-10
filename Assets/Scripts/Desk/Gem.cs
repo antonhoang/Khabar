@@ -65,9 +65,6 @@ public class Gem : MonoBehaviour
             }
             Debug.Log(finalTouchPosition);
         }
-
-        
-        
     }
 
     public void SetupGem(Vector2Int pos, Board theBoard)
@@ -200,11 +197,13 @@ public class Gem : MonoBehaviour
                     }
                 }
 
-                if (board.matchFind.currentMatches.Count >= 4)
+                
+                if(board.matchFind.isMatchesAroundThePosition)
                 {
                     Vector2Int pos = new Vector2Int(posIndex.x, posIndex.y);
                     board.allGems[posIndex.x, posIndex.y] = board.SpawnJudgeGem(pos);
                 }
+
                 
                 board.DestroyMatches();
                 board.CheckMisplacedGems();

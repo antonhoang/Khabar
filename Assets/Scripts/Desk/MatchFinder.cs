@@ -8,6 +8,8 @@ public class MatchFinder : MonoBehaviour
     private Board board;
     public List<Gem> currentMatches = new List<Gem>();
 
+    public bool isMatchesAroundThePosition = false;
+
     private void Awake()
     {
         board = FindObjectOfType<Board>();
@@ -60,6 +62,13 @@ public class MatchFinder : MonoBehaviour
                                 currentMatches.Add(belowGem);
                             }
                         }
+                    }
+
+                    if (currentMatches.Count >= 4) {
+                        isMatchesAroundThePosition = true;
+                    } else
+                    {
+                        isMatchesAroundThePosition = false;
                     }
                 }
 
