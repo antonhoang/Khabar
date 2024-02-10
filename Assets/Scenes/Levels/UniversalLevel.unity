@@ -2509,6 +2509,7 @@ MonoBehaviour:
   - {fileID: 2929499937384007330, guid: 7c49196a5c6ea4ad68013681d62a320b, type: 3}
   - {fileID: 5376528446987452115, guid: ceb33c745d27745bd93f130bf7dff9f2, type: 3}
   bomb: {fileID: 8274193486991126634, guid: d647f2bb2f62b4c35baa39878b39583c, type: 3}
+  judge: {fileID: 8362129775248048270, guid: e8b701080737e4d3cade00ccc21585f1, type: 3}
   gemSpeed: 7
   bombChance: 2
   roundMan: {fileID: 0}

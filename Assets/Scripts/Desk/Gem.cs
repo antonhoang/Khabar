@@ -63,14 +63,11 @@ public class Gem : MonoBehaviour
                 finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CalculateAngle();
             }
-            if (board.allGems[posIndex.x, posIndex.y] == this && type == GemType.judge)
-            {
-                Vector2Int pos = new Vector2Int(posIndex.x, posIndex.y);
-                board.DestroyGemsByRowAndColumn(pos);
-                Debug.Log("GetMouseButtonUp");
-            }
-            
-        } 
+            Debug.Log(finalTouchPosition);
+        }
+
+        
+        
     }
 
     public void SetupGem(Vector2Int pos, Board theBoard)
@@ -79,13 +76,26 @@ public class Gem : MonoBehaviour
         board = theBoard;
     }
 
+    private void OnMouseUp()
+    {
+        if (mousePressed && board.allGems[posIndex.x, posIndex.y] == this && type == GemType.judge)
+        {
+            Vector2Int pos = new Vector2Int(posIndex.x, posIndex.y);
+            board.DestroyGemsByRowAndColumn(pos);
+            Debug.Log("GetMouseButtonDown");
+        }
+        Debug.Log("OnMouseUp");
+
+    }
+
     private void OnMouseDown()
     {
-        if(board.currentState == Board.BoardState.move)
+        if (board.currentState == Board.BoardState.move)
         {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePressed = true;
         }
+   
         Debug.Log("OnMouseDown");
     }
 
