@@ -69,7 +69,19 @@ public class BoardLayout : MonoBehaviour
     }
 };
 
-    public Gem gemPrefab;
+    //new int[,] // Square pattern
+    //{
+    //    {0, 0, 0, 0, 0, 0, 1, 1},
+    //    {0, 0, 0, 0, 0, 1, 3, 1},
+    //    {0, 0, 0, 0, 0, 0, 1, 0},
+    //    {0, 0, 0, 0, 0, 0, 0, 0},
+    //    {0, 0, 0, 0, 0, 0, 0, 0},
+    //    {0, 0, 0, 0, 0, 0, 0, 0},
+    //    {0, 0, 0, 0, 0, 0, 0, 0},
+    //    {0, 0, 0, 0, 0, 0, 0, 0}
+    //}
+
+public Gem gemPrefab;
 
     Gem[,] ConvertToGems(int[,] matrix)
     {

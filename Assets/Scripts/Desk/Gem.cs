@@ -170,7 +170,7 @@ public class Gem : MonoBehaviour
     {
         board.currentState = Board.BoardState.wait;
 
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.1f);
         board.matchFind.FindAllMatches();
 
         if(otherGem != null)
@@ -183,7 +183,7 @@ public class Gem : MonoBehaviour
                 board.allGems[posIndex.x, posIndex.y] = this;
                 board.allGems[otherGem.posIndex.x, otherGem.posIndex.y] = otherGem;
 
-                yield return new WaitForSeconds(.2f);
+                yield return new WaitForSeconds(.1f);
 
                 board.currentState = Board.BoardState.move;
             } else

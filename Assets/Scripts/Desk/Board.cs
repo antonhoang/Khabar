@@ -105,6 +105,17 @@ public class Board : MonoBehaviour
         gem.SetupGem(pos, this);
     }
 
+    public Gem SpawnBombGem(Vector2Int pos)
+    {
+        Gem gem = Instantiate(bomb, new Vector3(pos.x, pos.y, 0f), Quaternion.identity);
+        gem.transform.parent = transform;
+        gem.name = "Gem - " + pos.x + ", " + pos.y;
+        allGems[pos.x, pos.y] = gem;
+
+        gem.SetupGem(pos, this);
+        return gem;
+    }
+
     public Gem SpawnJudgeGem(Vector2Int pos)
     {
         Gem gem = Instantiate(judge, new Vector3(pos.x, pos.y, 0f), Quaternion.identity);
@@ -303,7 +314,7 @@ public class Board : MonoBehaviour
             // Start a coroutine for each column
             for (int x = 0; x < width; x++)
             {
-                yield return new WaitForSeconds(0.008f);
+                yield return new WaitForSeconds(0.005f);
                 destroyedCoroutines.Add(StartCoroutine(SpawnGemsInColumnWithAnimation(x)));
             }
 
@@ -354,7 +365,7 @@ public class Board : MonoBehaviour
             if (allGems[column, y] == null)
             {
                 int gemToUse = Random.Range(0, gems.Length);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.08f);
                 Coroutine coroutine = StartCoroutine(SpawnGemWithAnimation(new Vector2Int(column, y), gems[gemToUse]));
                 spawnCoroutines.Add(coroutine);
             }
