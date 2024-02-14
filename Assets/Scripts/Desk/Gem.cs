@@ -179,11 +179,12 @@ public class Gem : MonoBehaviour
             {
                 otherGem.posIndex = posIndex;
                 posIndex = previousPos;
-
+                SFXManager.instance.PlaySwipeForward();
+                SFXManager.instance.PlaySwipeBack();
                 board.allGems[posIndex.x, posIndex.y] = this;
                 board.allGems[otherGem.posIndex.x, otherGem.posIndex.y] = otherGem;
-
                 yield return new WaitForSeconds(.1f);
+                
 
                 board.currentState = Board.BoardState.move;
             } else
@@ -197,8 +198,8 @@ public class Gem : MonoBehaviour
                     }
                 }
 
-                
-                if(board.matchFind.isMatchesAroundThePosition)
+                SFXManager.instance.PlaySwipeForward();
+                if (board.matchFind.isMatchesAroundThePosition)
                 {
                     Vector2Int pos = new Vector2Int(posIndex.x, posIndex.y);
                     board.allGems[posIndex.x, posIndex.y] = board.SpawnJudgeGem(pos);

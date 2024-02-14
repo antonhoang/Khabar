@@ -85,6 +85,7 @@
     <Compile Include="Assets/Scripts/UI/UIHelpers/ImageWithCorners.cs" />
     <Compile Include="Assets/Scripts/Models/ShopItem.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" />
+    <Compile Include="Assets/Scripts/Managers/SFXManager.cs" />
     <Compile Include="Assets/Scripts/StartScene/StartScene.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextConsoleSimulator.cs" />
