@@ -153,36 +153,36 @@ public class Board : MonoBehaviour
 
         // Setup the gem
         gem.SetupGem(pos, this);
+        yield return null;
+        //if (gem == null)
+        //    yield break;
+        //Vector3 startPosition = gem.transform.position;
+        //Vector3 endPosition = new Vector3(pos.x, pos.y, 0f); // Destination position
 
-        if (gem == null)
-            yield break;
-        Vector3 startPosition = gem.transform.position;
-        Vector3 endPosition = new Vector3(pos.x, pos.y, 0f); // Destination position
+        //float duration = 0.3f; // Duration of the drop animation
+        //float elapsed = 0f;
 
-        float duration = 0.3f; // Duration of the drop animation
-        float elapsed = 0f;
+        //while (elapsed < duration)
+        //{
+        //    if (gem == null)
+        //        yield break;
+        //    elapsed += Time.deltaTime;
+        //    float t = elapsed / duration;
+        //    //t = Mathf.SmoothStep(0f, 1f, t);
+        //    t = 1f - Mathf.Pow(1f - t, 3f); // Ease-out function
+        //    gem.transform.position = Vector3.Lerp(startPosition, endPosition, t);
+        //    yield return null;
+        //}
 
-        while (elapsed < duration)
-        {
-            if (gem == null)
-                yield break;
-            elapsed += Time.deltaTime;
-            float t = elapsed / duration;
-            t = Mathf.SmoothStep(0f, 1f, t);
-            //t = 1f - Mathf.Pow(1f - t, 3f); // Ease-out function
-            gem.transform.position = Vector3.Lerp(startPosition, endPosition, t);
-            yield return null;
-        }
+        //if (gem == null)
+        //    yield break;
+        //gem.transform.position = endPosition; // Ensure it reaches the final position exactly
 
-        if (gem == null)
-            yield break;
-        gem.transform.position = endPosition; // Ensure it reaches the final position exactly
-
-        // Start jump animation
-        if(gem != null)
-        {
-            StartCoroutine(JumpAnimation(gem));
-        }
+        //// Start jump animation
+        //if(gem != null)
+        //{
+        //    StartCoroutine(JumpAnimation(gem));
+        //}
     }
 
     // This coroutine performs the jump animation
@@ -365,7 +365,7 @@ public class Board : MonoBehaviour
             if (allGems[column, y] == null)
             {
                 int gemToUse = Random.Range(0, gems.Length);
-                yield return new WaitForSeconds(0.08f);
+                yield return new WaitForSeconds(0.1f);
                 Coroutine coroutine = StartCoroutine(SpawnGemWithAnimation(new Vector2Int(column, y), gems[gemToUse]));
                 spawnCoroutines.Add(coroutine);
             }
