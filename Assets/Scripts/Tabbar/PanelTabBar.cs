@@ -23,6 +23,7 @@ public class PanelTabBar : MonoBehaviour
         // Select the clicked tab
         clickedTab.Select();
         tabButtons[0].isInitial = false;
+        SFXManager.instance.PlayButtonClickSound();
     }
 }
 

@@ -147,6 +147,8 @@ public class KhabarDetailPopup : MonoBehaviour
             BuyCoinEffect.Play();
             UpdateBuyButton();
             StartCoroutine(FadeCoinLabel());
+            SFXManager.instance.PlayPurchaseSound();
+            SFXManager.instance.PlayMoneyRainShort();
         } else
         {
             StartCoroutine(ShowNotEnoughMoneyView());

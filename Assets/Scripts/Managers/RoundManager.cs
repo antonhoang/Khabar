@@ -32,20 +32,14 @@ public class RoundManager : MonoBehaviour
 
     public void ResultingScore()
     {
-        if (uiMan.movesLeft == 0)
-        {
-            CoinManager.AddCoins(currentScore);
-        }
-
-    }
-
-    private void LateUpdate()
-    {
-        
         if (uiMan.movesLeft == 0 && board.currentState == Board.BoardState.move)
         {
             uiMan.roundOverScreen.SetActive(true);
+            CoinManager.AddCoins(currentScore);
+            SFXManager.instance.PlayRoundOver();
+            SFXManager.instance.PlayMoneyRain();
         }
+
     }
 
     private void RoundTime()

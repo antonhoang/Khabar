@@ -13,6 +13,7 @@ public class UniversalLevelManager : MonoBehaviour
     {
         int level = LevelSelectButton.selectedLevel;
         background.sprite = backgrounds[level];
+        SFXManager.instance.PlayLevelSong();
     }
 
     // Update is called once per frame

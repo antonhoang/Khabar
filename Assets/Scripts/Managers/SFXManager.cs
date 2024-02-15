@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SFXManager : MonoBehaviour
 {
@@ -8,10 +9,105 @@ public class SFXManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        // Check if an instance already exists
+        if (instance == null)
+        {
+            // If not, set the instance to this object
+            instance = this;
+            // Ensure this object persists across scenes
+            DontDestroyOnLoad(gameObject);
+            
+        }
+        else
+        {
+            // If an instance already exists, destroy this object
+            Destroy(gameObject);
+        }
+        if (SceneManager.GetActiveScene().name == "UniversalLevel")
+        {
+            //PlayLevelSong();
+        } else
+        {
+            PlayMainMenuSong();
+        }
+
+            
     }
 
-    public AudioSource gemSound, explodeSound, stoneSound, roundOverSound, swipeForward, swipeBack;
+    public AudioSource
+        gemSound,
+        explodeSound,
+        stoneSound,
+        roundOverSound,
+        swipeForward,
+        swipeBack,
+        judgeSound,
+        moneyRain,
+        moneyRainShort,
+        purchaseSound,
+        buttonClickSound,
+        mainMenuSong,
+        levelSong;
+
+    public void PlayLevelSong()
+    {
+        mainMenuSong.Stop();
+        levelSong.Stop();
+        levelSong.loop = true;
+        levelSong.pitch = 1f;
+        levelSong.Play();
+    }
+
+    public void PlayMainMenuSong()
+    {
+        mainMenuSong.Stop();
+        mainMenuSong.loop = true;
+        mainMenuSong.pitch = 1f;
+        mainMenuSong.Play();
+    }
+
+    public void PlayButtonClickSound()
+    {
+        buttonClickSound.Stop();
+        buttonClickSound.pitch = 1f;
+        buttonClickSound.Play();
+    }
+
+    public void PlayPurchaseSound()
+    {
+        purchaseSound.Stop();
+
+        purchaseSound.pitch = Random.Range(.8f, 1.2f);
+
+        purchaseSound.Play();
+    }
+
+    public void PlayMoneyRainShort()
+    {
+        moneyRainShort.Stop();
+
+        moneyRainShort.pitch = Random.Range(.8f, 1.2f);
+
+        moneyRainShort.Play();
+    }
+
+    public void PlayMoneyRain()
+    {
+        moneyRain.Stop();
+
+        moneyRain.pitch = Random.Range(.8f, 1.2f);
+
+        moneyRain.Play();
+    }
+
+    public void PlayJudgeSound()
+    {
+        judgeSound.Stop();
+
+        judgeSound.pitch = Random.Range(.8f, 1.2f);
+
+        judgeSound.Play();
+    }
 
     public void PlaySwipeForward()
     {
@@ -60,6 +156,7 @@ public class SFXManager : MonoBehaviour
 
     public void PlayRoundOver()
     {
+        roundOverSound.Stop();
         roundOverSound.Play();
     }
 }
