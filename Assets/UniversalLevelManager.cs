@@ -16,6 +16,11 @@ public class UniversalLevelManager : MonoBehaviour
         SFXManager.instance.PlayLevelSong();
     }
 
+    private void OnDestroy()
+    {
+        SFXManager.instance.PlayMainMenuSong();
+    }
+
     // Update is called once per frame
     void Update()
     {

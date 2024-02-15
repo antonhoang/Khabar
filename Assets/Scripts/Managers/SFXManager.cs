@@ -23,13 +23,10 @@ public class SFXManager : MonoBehaviour
             // If an instance already exists, destroy this object
             Destroy(gameObject);
         }
-        if (SceneManager.GetActiveScene().name == "UniversalLevel")
-        {
-            //PlayLevelSong();
-        } else
+        if (SceneManager.GetActiveScene().name != "UniversalLevel")
         {
             PlayMainMenuSong();
-        }
+        } 
 
             
     }
@@ -60,6 +57,7 @@ public class SFXManager : MonoBehaviour
 
     public void PlayMainMenuSong()
     {
+        levelSong.Stop();
         mainMenuSong.Stop();
         mainMenuSong.loop = true;
         mainMenuSong.pitch = 1f;
