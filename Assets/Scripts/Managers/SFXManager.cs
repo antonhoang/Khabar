@@ -43,6 +43,7 @@ public class SFXManager : MonoBehaviour
     }
 
     public AudioSource
+        notEnough,
         gemSound,
         explodeSound,
         stoneSound,
@@ -68,6 +69,7 @@ public class SFXManager : MonoBehaviour
         soundEnabled = PlayerPrefs.GetInt("Sound", 1) == 1;
         if(!soundEnabled)
         {
+            notEnough.volume = 0;
             gemSound.volume = 0;
             explodeSound.volume = 0;
             stoneSound.volume = 0;
@@ -81,6 +83,7 @@ public class SFXManager : MonoBehaviour
             buttonClickSound.volume = 0;
         } else
         {
+            notEnough.volume = 1f;
             gemSound.volume = 1f;
             explodeSound.volume = 1f;
             stoneSound.volume = 1f;
@@ -138,6 +141,15 @@ public class SFXManager : MonoBehaviour
             mainMenuSong.pitch = 1f;
             mainMenuSong.Play();
     }
+
+    public void PlayNotEnough()
+    {
+        if (soundEnabled)
+            notEnough.Stop();
+            notEnough.pitch = 1f;
+            notEnough.Play();
+    }
+    
 
     public void PlayButtonClickSound()
     {

@@ -151,6 +151,7 @@ public class KhabarDetailPopup : MonoBehaviour
             SFXManager.instance.PlayMoneyRainShort();
         } else
         {
+            SFXManager.instance.PlayNotEnough();
             StartCoroutine(ShowNotEnoughMoneyView());
             ShakeCoinLabels();
         }
