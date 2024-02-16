@@ -41,12 +41,12 @@ public class SettingsScreen : MonoBehaviour
 
     private void UpdateSound()
     {
-        SFXManager.instance.SetSoundEnabled(soundToggle.isOn);
+        SFXManager.instance.SetSoundEnabled();
     }
 
     private void UpdateMusic()
     {
-        SFXManager.instance.SetMusicEnabled(musicToggle.isOn);
+        SFXManager.instance.SetMusicEnabled();
     }
 
     // Update is called once per frame

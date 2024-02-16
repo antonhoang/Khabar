@@ -18,6 +18,7 @@ public class UniversalLevelManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        SFXManager.instance.DisableSoundGameRound();
         SFXManager.instance.PlayMainMenuSong();
     }
 

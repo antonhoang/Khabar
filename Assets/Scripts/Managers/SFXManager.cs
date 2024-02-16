@@ -7,8 +7,8 @@ public class SFXManager : MonoBehaviour
 {
     public static SFXManager instance;
 
-    private bool soundEnabled = true;
-    private bool musicEnabled = true;
+    private bool soundEnabled = PlayerPrefs.GetInt("Sound", 1) == 1;
+    private bool musicEnabled = PlayerPrefs.GetInt("Music", 1) == 1;
 
     private void Awake()
     {
@@ -26,12 +26,20 @@ public class SFXManager : MonoBehaviour
             // If an instance already exists, destroy this object
             Destroy(gameObject);
         }
-        if (SceneManager.GetActiveScene().name != "UniversalLevel")
-        {
-            PlayMainMenuSong();
-        } 
+        
 
             
+    }
+
+    private void Start()
+    {
+        SetSoundEnabled();
+        SetMusicEnabled();
+
+        if (SceneManager.GetActiveScene().name != "UniversalLevel" && musicEnabled)
+        {
+            PlayMainMenuSong();
+        }
     }
 
     public AudioSource
@@ -49,14 +57,66 @@ public class SFXManager : MonoBehaviour
         mainMenuSong,
         levelSong;
 
-    public void SetSoundEnabled(bool enabled)
+    public void DisableSoundGameRound()
     {
-        soundEnabled = enabled;
+        roundOverSound.Stop();
+        moneyRain.Stop();
     }
 
-    public void SetMusicEnabled(bool enabled)
+    public void SetSoundEnabled()
     {
-        musicEnabled = enabled;
+        soundEnabled = PlayerPrefs.GetInt("Sound", 1) == 1;
+        if(!soundEnabled)
+        {
+            gemSound.volume = 0;
+            explodeSound.volume = 0;
+            stoneSound.volume = 0;
+            roundOverSound.volume = 0;
+            swipeForward.volume = 0;
+            swipeBack.volume = 0;
+            judgeSound.volume = 0;
+            moneyRain.volume = 0;
+            moneyRainShort.volume = 0;
+            purchaseSound.volume = 0;
+            buttonClickSound.volume = 0;
+        } else
+        {
+            gemSound.volume = 1f;
+            explodeSound.volume = 1f;
+            stoneSound.volume = 1f;
+            roundOverSound.volume = 1f;
+            swipeForward.volume = 1f;
+            swipeBack.volume = 1f;
+            judgeSound.volume = 1f;
+            moneyRain.volume = 1f;
+            moneyRainShort.volume = 1f;
+            purchaseSound.volume = 1f;
+            buttonClickSound.volume = 1f;
+        }
+    } 
+
+    public void SetMusicEnabled()
+    {
+        musicEnabled = PlayerPrefs.GetInt("Music", 1) == 1;
+        if(!musicEnabled)
+        {
+            mainMenuSong.volume = 0;
+            levelSong.volume = 0;
+        }
+        else if (SceneManager.GetActiveScene().name != "UniversalLevel" && musicEnabled)
+        {
+            mainMenuSong.volume = 0.05f;
+            levelSong.volume = 0.05f;
+            if(levelSong.isPlaying)
+            {
+                levelSong.Stop();
+            }
+            
+            if (!mainMenuSong.isPlaying)
+            {
+                PlayMainMenuSong();
+            }
+        }
     }
 
     public void PlayLevelSong()
