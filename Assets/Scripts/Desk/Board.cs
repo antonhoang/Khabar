@@ -243,6 +243,7 @@ public class Board : MonoBehaviour
             if (allGems[x, pos.y] != null)
             {
                 Instantiate(allGems[x, pos.y].destroyEffect, new Vector2(x, pos.y), Quaternion.identity);
+                ScoreCheck(allGems[x, pos.y]);
                 Destroy(allGems[x, pos.y].gameObject);
                 allGems[x, pos.y] = null;
             }
@@ -254,6 +255,7 @@ public class Board : MonoBehaviour
             if (allGems[pos.x, y] != null)
             {
                 Instantiate(allGems[pos.x, y].destroyEffect, new Vector2(pos.x, y), Quaternion.identity);
+                ScoreCheck(allGems[pos.x, y]);
                 Destroy(allGems[pos.x, y].gameObject);
                 allGems[pos.x, y] = null;
             }
