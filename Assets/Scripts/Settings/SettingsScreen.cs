@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsScreen : MonoBehaviour
 {
@@ -10,10 +11,42 @@ public class SettingsScreen : MonoBehaviour
     public GameObject termsOfUseScreen;
     public GameObject supportUsScreen;
 
-    // Start is called before the first frame update
-    void Start()
+    public Toggle soundToggle;
+    public Toggle musicToggle;
+
+    private void Start()
     {
-        
+        // Load player preferences for sound and music
+        soundToggle.isOn = PlayerPrefs.GetInt("Sound", 1) == 1;
+        musicToggle.isOn = PlayerPrefs.GetInt("Music", 1) == 1;
+
+        // Apply preferences
+        UpdateSound();
+        UpdateMusic();
+    }
+
+    public void ToggleSound()
+    {
+        PlayerPrefs.SetInt("Sound", soundToggle.isOn ? 1 : 0);
+        PlayerPrefs.Save();
+        UpdateSound();
+    }
+
+    public void ToggleMusic()
+    {
+        PlayerPrefs.SetInt("Music", musicToggle.isOn ? 1 : 0);
+        PlayerPrefs.Save();
+        UpdateMusic();
+    }
+
+    private void UpdateSound()
+    {
+        SFXManager.instance.SetSoundEnabled(soundToggle.isOn);
+    }
+
+    private void UpdateMusic()
+    {
+        SFXManager.instance.SetMusicEnabled(musicToggle.isOn);
     }
 
     // Update is called once per frame

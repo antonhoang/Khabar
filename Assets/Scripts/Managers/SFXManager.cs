@@ -7,6 +7,9 @@ public class SFXManager : MonoBehaviour
 {
     public static SFXManager instance;
 
+    private bool soundEnabled = true;
+    private bool musicEnabled = true;
+
     private void Awake()
     {
         // Check if an instance already exists
@@ -46,115 +49,120 @@ public class SFXManager : MonoBehaviour
         mainMenuSong,
         levelSong;
 
+    public void SetSoundEnabled(bool enabled)
+    {
+        soundEnabled = enabled;
+    }
+
+    public void SetMusicEnabled(bool enabled)
+    {
+        musicEnabled = enabled;
+    }
+
     public void PlayLevelSong()
     {
-        mainMenuSong.Stop();
-        levelSong.Stop();
-        levelSong.loop = true;
-        levelSong.pitch = 1f;
-        levelSong.Play();
+        if (musicEnabled)
+            mainMenuSong.Stop();
+            levelSong.Stop();
+            levelSong.loop = true;
+            levelSong.pitch = 1f;
+            levelSong.Play();
     }
 
     public void PlayMainMenuSong()
     {
-        levelSong.Stop();
-        mainMenuSong.Stop();
-        mainMenuSong.loop = true;
-        mainMenuSong.pitch = 1f;
-        mainMenuSong.Play();
+        if (musicEnabled)
+            levelSong.Stop();
+            mainMenuSong.Stop();
+            mainMenuSong.loop = true;
+            mainMenuSong.pitch = 1f;
+            mainMenuSong.Play();
     }
 
     public void PlayButtonClickSound()
     {
-        buttonClickSound.Stop();
-        buttonClickSound.pitch = 1f;
-        buttonClickSound.Play();
+        if (soundEnabled)
+            buttonClickSound.Stop();
+            buttonClickSound.pitch = 1f;
+            buttonClickSound.Play();
     }
 
     public void PlayPurchaseSound()
     {
-        purchaseSound.Stop();
-
-        purchaseSound.pitch = Random.Range(.8f, 1.2f);
-
-        purchaseSound.Play();
+        if (soundEnabled)
+            purchaseSound.Stop();
+            purchaseSound.pitch = Random.Range(.8f, 1.2f);
+            purchaseSound.Play();
     }
 
     public void PlayMoneyRainShort()
     {
-        moneyRainShort.Stop();
-
-        moneyRainShort.pitch = Random.Range(.8f, 1.2f);
-
-        moneyRainShort.Play();
+        if (soundEnabled)
+            moneyRainShort.Stop();
+            moneyRainShort.pitch = Random.Range(.8f, 1.2f);
+            moneyRainShort.Play();
     }
 
     public void PlayMoneyRain()
     {
-        moneyRain.Stop();
-
-        moneyRain.pitch = Random.Range(.8f, 1.2f);
-
-        moneyRain.Play();
+        if (soundEnabled)
+            moneyRain.Stop();
+            moneyRain.pitch = Random.Range(.8f, 1.2f);
+            moneyRain.Play();
     }
 
     public void PlayJudgeSound()
     {
-        judgeSound.Stop();
-
-        judgeSound.pitch = Random.Range(.8f, 1.2f);
-
-        judgeSound.Play();
+        if (soundEnabled)
+            judgeSound.Stop();
+            judgeSound.pitch = Random.Range(.8f, 1.2f);
+            judgeSound.Play();
     }
 
     public void PlaySwipeForward()
     {
-        swipeForward.Stop();
-
-        swipeForward.pitch = Random.Range(.8f, 1.2f);
-
-        swipeForward.Play();
+        if (soundEnabled)
+            swipeForward.Stop();
+            swipeForward.pitch = Random.Range(.8f, 1.2f);
+            swipeForward.Play();
     }
 
     public void PlaySwipeBack()
     {
-        swipeBack.Stop();
-
-        swipeBack.pitch = Random.Range(.8f, 1.2f);
-
-        swipeBack.Play();
+        if (soundEnabled)
+            swipeBack.Stop();
+            swipeBack.pitch = Random.Range(.8f, 1.2f);
+            swipeBack.Play();
     }
 
     public void PlayGemBreak()
     {
-        gemSound.Stop();
-
-        gemSound.pitch = Random.Range(.8f, 1.2f);
-
-        gemSound.Play();
+        if (soundEnabled)
+            gemSound.Stop();
+            gemSound.pitch = Random.Range(.8f, 1.2f);
+            gemSound.Play();
     }
 
     public void PlayExplode()
     {
-        explodeSound.Stop();
-
-        explodeSound.pitch = Random.Range(.8f, 1.2f);
-
-        explodeSound.Play();
+        if (soundEnabled)
+            explodeSound.Stop();
+            explodeSound.pitch = Random.Range(.8f, 1.2f);
+            explodeSound.Play();
     }
 
     public void PlayStoneBreak()
     {
-        stoneSound.Stop();
-
-        stoneSound.pitch = Random.Range(.8f, 1.2f);
-
-        stoneSound.Play();
+        if (soundEnabled)
+            stoneSound.Stop();
+            stoneSound.pitch = Random.Range(.8f, 1.2f);
+            stoneSound.Play();
     }
 
     public void PlayRoundOver()
     {
-        roundOverSound.Stop();
-        roundOverSound.Play();
+        if (soundEnabled)
+            roundOverSound.Stop();
+            roundOverSound.Play();
     }
 }
