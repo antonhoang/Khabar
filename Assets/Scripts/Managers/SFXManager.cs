@@ -7,11 +7,13 @@ public class SFXManager : MonoBehaviour
 {
     public static SFXManager instance;
 
-    private bool soundEnabled = PlayerPrefs.GetInt("Sound", 1) == 1;
-    private bool musicEnabled = PlayerPrefs.GetInt("Music", 1) == 1;
+    private bool soundEnabled;
+    private bool musicEnabled;
 
     private void Awake()
     {
+        soundEnabled = PlayerPrefs.GetInt("Sound", 1) == 1;
+        musicEnabled = PlayerPrefs.GetInt("Music", 1) == 1;
         // Check if an instance already exists
         if (instance == null)
         {
