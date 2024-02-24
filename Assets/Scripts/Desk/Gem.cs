@@ -79,6 +79,7 @@ public class Gem : MonoBehaviour
         {
             Vector2Int pos = new Vector2Int(posIndex.x, posIndex.y);
             board.DestroyGemsByRowAndColumn(pos);
+            board.CheckMisplacedGems();
             SFXManager.instance.PlayJudgeSound();
             Debug.Log("GetMouseButtonDown");
         }
