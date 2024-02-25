@@ -75,7 +75,7 @@ public class Gem : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (mousePressed && board.allGems[posIndex.x, posIndex.y] == this && type == GemType.judge)
+        if (board.currentState == Board.BoardState.move && mousePressed && board.allGems[posIndex.x, posIndex.y] == this && type == GemType.judge)
         {
             Vector2Int pos = new Vector2Int(posIndex.x, posIndex.y);
             board.DestroyGemsByRowAndColumn(pos);
