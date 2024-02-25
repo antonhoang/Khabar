@@ -59,14 +59,19 @@ public class Board : MonoBehaviour
         {
             layoutStore = boardLayout.GetLayout();
         }
+
+        List<GameObject> bgTiles = new List<GameObject>(); // Store instantiated background tiles
+
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
                 Vector2 pos = new Vector2(x, y);
+
+                // Instantiate background tile without setting parent
                 GameObject bgTile = Instantiate(bgTilePrefab, pos, Quaternion.identity);
-                bgTile.transform.parent = transform;
                 bgTile.name = "BG Tile - " + x + ", " + y;
+                bgTiles.Add(bgTile); // Add to the list for later parenting
 
                 if (layoutStore[x, y] != null)
                 {
@@ -74,21 +79,25 @@ public class Board : MonoBehaviour
                 }
                 else
                 {
-
                     int gemToUse = Random.Range(0, gems.Length);
-
                     int iterations = 0;
                     while (MatchesAt(new Vector2Int(x, y), gems[gemToUse]) && iterations < 100)
                     {
                         gemToUse = Random.Range(0, gems.Length);
                         iterations++;
                     }
-
                     SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
                 }
             }
         }
+
+        // Parent all background tiles under this GameObject in one go
+        foreach (var bgTile in bgTiles)
+        {
+            bgTile.transform.parent = transform;
+        }
     }
+
 
     private void SpawnGem(Vector2Int pos, Gem gemToSpawn)
     {

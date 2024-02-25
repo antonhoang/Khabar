@@ -141,20 +141,34 @@ public class MatchFinder : MonoBehaviour
 
     public void MarkBombArea(Vector2Int bombPos, Gem theBomb)
     {
-        for(int x = bombPos.x - theBomb.blastSize; x <= bombPos.x + theBomb.blastSize; x++)
+        HashSet<Gem> potentialMatches = new HashSet<Gem>(); // Use a HashSet to avoid duplicates
+
+        int minX = Mathf.Max(0, bombPos.x - theBomb.blastSize);
+        int maxX = Mathf.Min(board.width - 1, bombPos.x + theBomb.blastSize);
+        int minY = Mathf.Max(0, bombPos.y - theBomb.blastSize);
+        int maxY = Mathf.Min(board.height - 1, bombPos.y + theBomb.blastSize);
+
+        for (int x = minX; x <= maxX; x++)
         {
-            for(int y = bombPos.y - theBomb.blastSize; y <= bombPos.y + theBomb.blastSize; y++)
+            for (int y = minY; y <= maxY; y++)
             {
-                if(x >= 0 && x < board.width && y >= 0 && y < board.height)
+                Gem gem = board.allGems[x, y];
+                if (gem != null)
                 {
-                    if (board.allGems[x,y] != null)
-                    {
-                        board.allGems[x, y].isMatched = true;
-                        currentMatches.Add(board.allGems[x, y]);
-                    }
+                    gem.isMatched = true;
+                    potentialMatches.Add(gem);
                 }
             }
         }
+
+        // Add potential matches to currentMatches and remove duplicates
+        foreach (var gem in potentialMatches)
+        {
+            currentMatches.Add(gem);
+        }
+
+        // Update currentMatches to remove duplicates
         currentMatches = currentMatches.Distinct().ToList();
     }
+
 }
