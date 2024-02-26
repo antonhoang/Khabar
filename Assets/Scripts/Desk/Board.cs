@@ -246,31 +246,31 @@ public class Board : MonoBehaviour
 
     public void DestroyGemsByRowAndColumn(Vector2Int pos)
     {
-        // Destroy gems in the same row
-        for (int x = 0; x < width; x++)
+        // Destroy gems in the same row and column
+        for (int i = 0; i < width; i++)
         {
-            if (allGems[x, pos.y] != null)
+            Gem gemToDestroyRow = allGems[i, pos.y];
+            if (gemToDestroyRow != null)
             {
-                Instantiate(allGems[x, pos.y].destroyEffect, new Vector2(x, pos.y), Quaternion.identity);
-                ScoreCheck(allGems[x, pos.y]);
-                Destroy(allGems[x, pos.y].gameObject);
-                allGems[x, pos.y] = null;
+                Instantiate(gemToDestroyRow.destroyEffect, new Vector2(i, pos.y), Quaternion.identity);
+                ScoreCheck(gemToDestroyRow);
+                Destroy(gemToDestroyRow.gameObject);
+                allGems[i, pos.y] = null;
+            }
+
+            Gem gemToDestroyColumn = allGems[pos.x, i];
+            if (gemToDestroyColumn != null)
+            {
+                Instantiate(gemToDestroyColumn.destroyEffect, new Vector2(pos.x, i), Quaternion.identity);
+                ScoreCheck(gemToDestroyColumn);
+                Destroy(gemToDestroyColumn.gameObject);
+                allGems[pos.x, i] = null;
             }
         }
 
-        // Destroy gems in the same column
-        for (int y = 0; y < height; y++)
-        {
-            if (allGems[pos.x, y] != null)
-            {
-                Instantiate(allGems[pos.x, y].destroyEffect, new Vector2(pos.x, y), Quaternion.identity);
-                ScoreCheck(allGems[pos.x, y]);
-                Destroy(allGems[pos.x, y].gameObject);
-                allGems[pos.x, y] = null;
-            }
-        }
         StartCoroutine(DecreaseRowCo());
     }
+
 
 
     private void DestroyMatchedGemAt(Vector2Int pos) {
@@ -404,9 +404,11 @@ public class Board : MonoBehaviour
 
     private void DecreaseRow()
     {
-        int nullCounter = 0;
         for (int x = 0; x < width; x++)
         {
+            int nullCounter = 0;
+
+            // Find null spaces in the column
             for (int y = 0; y < height; y++)
             {
                 if (allGems[x, y] == null)
@@ -415,35 +417,51 @@ public class Board : MonoBehaviour
                 }
                 else if (nullCounter > 0)
                 {
+                    // Shift the gem downwards by the number of null spaces
                     allGems[x, y].posIndex.y -= nullCounter;
+
+                    // Update the position of the gem in the array
                     allGems[x, y - nullCounter] = allGems[x, y];
+
+                    // Clear the original position
                     allGems[x, y] = null;
                 }
             }
-            nullCounter = 0;
         }
     }
 
     public void CheckMisplacedGems()
     {
-        List<Gem> foundGems = new List<Gem>();
-        foundGems.AddRange(FindObjectsOfType<Gem>());
+        List<Gem> misplacedGems = new List<Gem>();
 
+        foreach (Gem gem in FindObjectsOfType<Gem>())
+        {
+            if (!IsGemInGrid(gem))
+            {
+                misplacedGems.Add(gem);
+            }
+        }
+
+        foreach (Gem misplacedGem in misplacedGems)
+        {
+            Destroy(misplacedGem.gameObject);
+        }
+    }
+
+    // Helper method to check if a gem exists in the allGems array
+    private bool IsGemInGrid(Gem gem)
+    {
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                if (foundGems.Contains(allGems[x, y]))
+                if (allGems[x, y] == gem)
                 {
-                    foundGems.Remove(allGems[x, y]);
+                    return true;
                 }
             }
         }
-
-        foreach(Gem g in foundGems)
-        {
-            Destroy(g.gameObject);
-        }
+        return false;
     }
 
     public void ShuffleBoard()
